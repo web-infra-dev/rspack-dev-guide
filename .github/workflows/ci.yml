@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - deploy
+      - main
+
+jobs:
+  ci:
+    name: Deploy mdbook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Toolchain
+        run: rustup show
+
+      - name: Install mdbook
+        uses: taiki-e/install-action@v2
+        with:
+          tool: mdbook,mdbook-linkcheck
+
+      - name: Deploy to gh-pages
+        # if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./book

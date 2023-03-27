@@ -4,3 +4,7 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Rspack Development Guide"
+
+[output.html]
+
+[output.linkcheck]
