@@ -9,6 +9,7 @@ The Rspack team believe that creating a development guide for Rspack is a great 
 ```bash
 cargo install mdbook
 cargo install mdbook-linkcheck
+cargo install mdbook-toc
 ```
 
 ## Preview
