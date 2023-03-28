@@ -1,9 +1,13 @@
 [book]
-authors = ["Boshen"]
+title = "Rspack Development Guide"
+authors = ["https://github.com/web-infra-dev/rspack-dev-guide/graphs/contributors"]
 language = "en"
 multilingual = false
 src = "src"
-title = "Rspack Development Guide"
+
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]
 
 [output.html]
 
