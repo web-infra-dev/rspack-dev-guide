@@ -16,6 +16,7 @@
 
 - [Intro](./contributing-to-rspack/intro.md)
 - [Walkthrough: a typical contribution]()
+- [Managing Labels](./contributing-to-rspack/managing-labels.md)
 
 # High-level Compiler Architecture
 

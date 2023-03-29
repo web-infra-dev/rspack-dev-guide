@@ -27,7 +27,7 @@ jobs:
       - name: Install mdbook
         uses: taiki-e/install-action@v2
         with:
-          tool: mdbook,mdbook-linkcheck
+          tool: mdbook,mdbook-linkcheck,mdbook-toc
 
       - name: Build mdbook
         run: mdbook build
