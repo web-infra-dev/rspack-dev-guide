@@ -3,7 +3,7 @@
 ## Process
 
 1. Go through unsolved issues/PRs in the milestone that plan to finish last week. [Link](https://github.com/web-infra-dev/rspack/milestones?direction=asc&sort=title&state=open)
-    1. Move unsolved issues/PRs in the milestone matched the released version next week.
+    1. Move unsolved issues/PRs in the milestone that plan to finish this week.
     2. Close the milestone that plan to finish last week.
 
 2. Go through issues in `planned` milestone.
@@ -20,7 +20,7 @@
 
         2. Assign issue to the milestone that plan to finish.
 
-5. Go through issues/PRs in the milestone place to finish next week.
+5. Review issues/PRs in the milestone place to finish this week.
 
 ### Discussions
 
