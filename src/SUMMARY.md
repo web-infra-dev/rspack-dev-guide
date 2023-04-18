@@ -28,5 +28,5 @@
 
 # Workflows
 
-- [How the Rspack team develop Rspack]()
-- [Release]()
+- [Tuesday meeting](./workflows/tuesday-meeting.md)
+- [Releases](./workflows/releases.md)
