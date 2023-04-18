@@ -17,4 +17,4 @@ See details at [semver.org](https://semver.org/)
 
 - Major releases are released as needed. 
 
-See [milestones](https://github.com/web-infra-dev/rspack/milestones?direction=asc&sort=title&state=open) to follow out release plan.
+See [milestones](https://github.com/web-infra-dev/rspack/milestones?direction=asc&sort=title&state=open) to follow our release plan.
