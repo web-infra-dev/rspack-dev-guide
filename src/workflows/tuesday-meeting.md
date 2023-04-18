@@ -20,7 +20,7 @@
 
         2. Assign issue to the milestone that plan to finish.
 
-5. Review issues/PRs in the milestone place to finish this week.
+5. Review issues/PRs in the milestone plan to finish this week.
 
 ### Discussions
 
