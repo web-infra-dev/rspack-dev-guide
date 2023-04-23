@@ -1,32 +1,41 @@
 # Summary
 
 [About this guide](./about-this-guide.md)
+[Getting started](./getting-started.md)
 
-# Building and debugging Rspack
+---
 
-- [How to build and run the compiler](./building-and-debugging-rspack/intro.md)
-    - [Prerequisites]()
-    - [Suggested Workflows]()
-    - [Building documentation]()
-- [Testing Rspack]()
-- [Debugging Rspack]()
-- [Profiling Rspack]()
+# Development
 
-# Contributing to Rspack
+- [Building and running](./building/intro.md)
+    - [Prerequisites](./building/prerequisites.md)
+    - [Suggested Workflows](./building/suggested.md)
+- [Testing](./testing/intro.md)
+- [Debugging](./debugging/intro.md)
+- [Profiling](./profiling/intro.md)
 
-- [Intro](./contributing-to-rspack/intro.md)
+# Contribution
+
+- [Contribution Procedures](./contributing/intro.md)
+- [About the team](./contributing/team.md)
 - [Walkthrough: a typical contribution]()
-- [Managing Labels](./contributing-to-rspack/managing-labels.md)
+- [Managing labels](./contributing/managing-labels.md)
 
-# High-level Compiler Architecture
+# Architecture
 
-- [Intro]()
-- [Folder structures]()
-- [Overview of the compiler]()
-    - [Plugins]()
-    - [Loaders]()
+- [High level](./architecture/intro.md)
+    - [Folder structures]()
+- [Plugins]()
+- [Loaders]()
+
+---
 
 # Workflows
 
 - [Tuesday meeting](./workflows/tuesday-meeting.md)
 - [Releases](./workflows/releases.md)
+
+---
+
+[Appendix A: Learning resources](./appendix/learning-resources.md)
+[Appendix Z: Fun stuff](./appendix/fun.md)
