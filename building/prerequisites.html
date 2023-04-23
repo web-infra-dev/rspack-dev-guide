@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Tuesday meeting - Rspack Development Guide</title>
+        <title>Prerequisites - Rspack Development Guide</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../about-this-guide.html">About this guide</a></li><li class="chapter-item affix "><a href="../getting-started.html">Getting started</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item "><a href="../building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a></li><li class="chapter-item "><a href="../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item "><a href="../profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../contributing/intro.html"><strong aria-hidden="true">5.</strong> Contribution Procedures</a></li><li class="chapter-item "><a href="../contributing/team.html"><strong aria-hidden="true">6.</strong> About the team</a></li><li class="chapter-item "><div><strong aria-hidden="true">7.</strong> Walkthrough: a typical contribution</div></li><li class="chapter-item "><a href="../contributing/managing-labels.html"><strong aria-hidden="true">8.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item "><a href="../architecture/intro.html"><strong aria-hidden="true">9.</strong> High level</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">9.1.</strong> Folder structures</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">10.</strong> Plugins</div></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Loaders</div></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Workflows</li><li class="chapter-item expanded "><a href="../workflows/tuesday-meeting.html" class="active"><strong aria-hidden="true">12.</strong> Tuesday meeting</a></li><li class="chapter-item "><a href="../workflows/releases.html"><strong aria-hidden="true">13.</strong> Releases</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../about-this-guide.html">About this guide</a></li><li class="chapter-item affix "><a href="../getting-started.html">Getting started</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item expanded "><a href="../building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../building/prerequisites.html" class="active"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a></li><li class="chapter-item "><a href="../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item "><a href="../profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../contributing/intro.html"><strong aria-hidden="true">5.</strong> Contribution Procedures</a></li><li class="chapter-item "><a href="../contributing/team.html"><strong aria-hidden="true">6.</strong> About the team</a></li><li class="chapter-item "><div><strong aria-hidden="true">7.</strong> Walkthrough: a typical contribution</div></li><li class="chapter-item "><a href="../contributing/managing-labels.html"><strong aria-hidden="true">8.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item "><a href="../architecture/intro.html"><strong aria-hidden="true">9.</strong> High level</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">9.1.</strong> Folder structures</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">10.</strong> Plugins</div></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Loaders</div></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Workflows</li><li class="chapter-item "><a href="../workflows/tuesday-meeting.html"><strong aria-hidden="true">12.</strong> Tuesday meeting</a></li><li class="chapter-item "><a href="../workflows/releases.html"><strong aria-hidden="true">13.</strong> Releases</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,71 +144,17 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="tuesday-meeting"><a class="header" href="#tuesday-meeting">Tuesday meeting</a></h1>
-<h2 id="process"><a class="header" href="#process">Process</a></h2>
-<ol>
-<li>
-<p>Go through unsolved issues/PRs in the milestone that plan to finish last week. <a href="https://github.com/web-infra-dev/rspack/milestones?direction=asc&amp;sort=title&amp;state=open">Link</a></p>
-<ol>
-<li>Move unsolved issues/PRs in the milestone that plan to finish this week.</li>
-<li>Close the milestone that plan to finish last week.</li>
-</ol>
-</li>
-<li>
-<p>Go through issues in <code>planned</code> milestone.</p>
-<ol>
-<li>
-<p>Prioritize all all issues. <a href="https://github.com/web-infra-dev/rspack/issues?q=is%3Aopen+is%3Aissue+milestone%3APlanned+-label%3Ap0-urgent+-label%3Ap1-important+-label%3Ap1-signifincant-downstream-blocker+-label%3Ap2-signifincant+-label%3Ap3-has-workaround+-label%3Ap3-minor-bug+-label%3Ap3-nice-to-have">Link</a></p>
-</li>
-<li>
-<p>Go though p1 issues. <a href="https://github.com/web-infra-dev/rspack/issues?q=is%3Aopen+milestone%3APlanned+label%3Ap1-important%2Cp1-signifincant-downstream-blocker+">Link</a></p>
-</li>
-<li>
-<p>Go though p2 issues. <a href="https://github.com/web-infra-dev/rspack/issues?q=is%3Aopen+milestone%3APlanned+label%3Ap2-signifincant+">Link</a></p>
-</li>
-<li>
-<p>Go though p3 issues. <a href="https://github.com/web-infra-dev/rspack/issues?q=is%3Aopen+milestone%3APlanned+label%3Ap3-has-workaround%2Cp3-minor-bug%2Cp3-nice-to-have">Link</a></p>
-</li>
-<li>
-<p>Assign issues.</p>
-<ol>
-<li>
-<p>Assign issue to related persons.</p>
-</li>
-<li>
-<p>Assign issue to the milestone that plan to finish.</p>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>
-<p>Review issues/PRs in the milestone plan to finish this week.</p>
-</li>
-</ol>
-<h3 id="discussions"><a class="header" href="#discussions">Discussions</a></h3>
-<ol>
-<li>
-<p>Go through issues/PRs with the label named <code>to be discuss</code>. <a href="https://github.com/web-infra-dev/rspack/labels/to%20be%20discuss">Link</a></p>
-</li>
-<li>
-<p>Go through discussions with the label named <code>to be discuss</code>. <a href="https://github.com/web-infra-dev/rspack/discussions/categories/core?discussions_q=is%3Aopen+category%3ACore+label%3A%22to+be+discuss%22">Link</a></p>
-</li>
-</ol>
-<h2 id="related"><a class="header" href="#related">Related</a></h2>
-<ul>
-<li>See <a href="./releases.html">Releases</a> to follow the releasing process of Rspack.</li>
-</ul>
+                        <h1 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../architecture/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../building/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../workflows/releases.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../building/suggested.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -218,11 +164,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../architecture/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../building/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../workflows/releases.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../building/suggested.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
