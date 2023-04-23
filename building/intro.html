@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../about-this-guide.html">About this guide</a></li><li class="chapter-item affix "><a href="../getting-started.html">Getting started</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item expanded "><a href="../building/intro.html" class="active"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a></li><li class="chapter-item "><a href="../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item "><a href="../profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../contributing/intro.html"><strong aria-hidden="true">5.</strong> Contribution Procedures</a></li><li class="chapter-item "><a href="../contributing/team.html"><strong aria-hidden="true">6.</strong> About the team</a></li><li class="chapter-item "><div><strong aria-hidden="true">7.</strong> Walkthrough: a typical contribution</div></li><li class="chapter-item "><a href="../contributing/managing-labels.html"><strong aria-hidden="true">8.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item "><a href="../architecture/intro.html"><strong aria-hidden="true">9.</strong> High level</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">9.1.</strong> Folder structures</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">10.</strong> Plugins</div></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Loaders</div></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Workflows</li><li class="chapter-item "><a href="../workflows/tuesday-meeting.html"><strong aria-hidden="true">12.</strong> Tuesday meeting</a></li><li class="chapter-item "><a href="../workflows/releases.html"><strong aria-hidden="true">13.</strong> Releases</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../about-this-guide.html">About this guide</a></li><li class="chapter-item affix "><a href="../getting-started.html">Getting started</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item expanded "><a href="../building/intro.html" class="active"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a></li><li class="chapter-item "><a href="../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item "><a href="../profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item "><a href="../releasing/intro.html"><strong aria-hidden="true">5.</strong> Releasing</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../contributing/intro.html"><strong aria-hidden="true">6.</strong> Contribution Procedures</a></li><li class="chapter-item "><a href="../contributing/team.html"><strong aria-hidden="true">7.</strong> About the team</a></li><li class="chapter-item "><div><strong aria-hidden="true">8.</strong> Walkthrough: a typical contribution</div></li><li class="chapter-item "><a href="../contributing/managing-labels.html"><strong aria-hidden="true">9.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item "><a href="../architecture/intro.html"><strong aria-hidden="true">10.</strong> High level</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">10.1.</strong> Folder structures</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Plugins</div></li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> Loaders</div></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Workflows</li><li class="chapter-item "><a href="../workflows/tuesday-meeting.html"><strong aria-hidden="true">13.</strong> Tuesday meeting</a></li><li class="chapter-item "><a href="../workflows/releases.html"><strong aria-hidden="true">14.</strong> Releases</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,7 +145,32 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="how-to-build-and-run-the-compiler"><a class="header" href="#how-to-build-and-run-the-compiler">How to build and run the compiler</a></h1>
+<p>Please see <a href="prerequisites.html">prerequisites</a> for setting up Rust and Node.js.</p>
 <h2 id="zx--the-build-tool-rspack-using"><a class="header" href="#zx--the-build-tool-rspack-using">zx —— The build tool Rspack using</a></h2>
+<h3 id="running-setup-script"><a class="header" href="#running-setup-script">Running setup script</a></h3>
+<p>Make sure you are under the workspace root</p>
+<pre><code class="language-bash">node ./scripts/meta/setup.js
+</code></pre>
+<h3 id="install-nodejs-dependencies"><a class="header" href="#install-nodejs-dependencies">Install Node.js dependencies</a></h3>
+<p>Install Node.js dependencies via <a href="https://pnpm.io/">pnpm</a>.</p>
+<pre><code class="language-bash"># enable pnpm with corepack, only available on node &gt;= `v14.19.0`
+corepack enable
+
+# or install pnpm directly
+npm install -g pnpm@7
+
+# Install dependencies
+pnpm run init
+</code></pre>
+<h3 id="setup-protoc-for-sass-embedded"><a class="header" href="#setup-protoc-for-sass-embedded">Setup protoc for sass-embedded</a></h3>
+<ul>
+<li>Install <a href="https://grpc.io/docs/protoc-installation/">protoc</a> for building <code>sass-embedded</code>.</li>
+</ul>
+<h2 id="building-rspack"><a class="header" href="#building-rspack">Building Rspack</a></h2>
+<ul>
+<li>Run <code>cargo build</code> to compile Rust code.</li>
+<li>Run <code>pnpm run build:cli:debug</code> to compile both Node.js and Rust code.</li>
+</ul>
 
                     </main>
 

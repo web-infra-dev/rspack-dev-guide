@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="about-this-guide.html">About this guide</a></li><li class="chapter-item affix "><a href="getting-started.html">Getting started</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item "><a href="building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a></li><li class="chapter-item "><a href="debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item "><a href="profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="contributing/intro.html"><strong aria-hidden="true">5.</strong> Contribution Procedures</a></li><li class="chapter-item "><a href="contributing/team.html"><strong aria-hidden="true">6.</strong> About the team</a></li><li class="chapter-item "><div><strong aria-hidden="true">7.</strong> Walkthrough: a typical contribution</div></li><li class="chapter-item "><a href="contributing/managing-labels.html"><strong aria-hidden="true">8.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item "><a href="architecture/intro.html"><strong aria-hidden="true">9.</strong> High level</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">9.1.</strong> Folder structures</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">10.</strong> Plugins</div></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Loaders</div></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Workflows</li><li class="chapter-item "><a href="workflows/tuesday-meeting.html"><strong aria-hidden="true">12.</strong> Tuesday meeting</a></li><li class="chapter-item "><a href="workflows/releases.html"><strong aria-hidden="true">13.</strong> Releases</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="about-this-guide.html">About this guide</a></li><li class="chapter-item affix "><a href="getting-started.html">Getting started</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item "><a href="building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a></li><li class="chapter-item "><a href="debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item "><a href="profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item "><a href="releasing/intro.html"><strong aria-hidden="true">5.</strong> Releasing</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="contributing/intro.html"><strong aria-hidden="true">6.</strong> Contribution Procedures</a></li><li class="chapter-item "><a href="contributing/team.html"><strong aria-hidden="true">7.</strong> About the team</a></li><li class="chapter-item "><div><strong aria-hidden="true">8.</strong> Walkthrough: a typical contribution</div></li><li class="chapter-item "><a href="contributing/managing-labels.html"><strong aria-hidden="true">9.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item "><a href="architecture/intro.html"><strong aria-hidden="true">10.</strong> High level</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">10.1.</strong> Folder structures</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Plugins</div></li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> Loaders</div></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Workflows</li><li class="chapter-item "><a href="workflows/tuesday-meeting.html"><strong aria-hidden="true">13.</strong> Tuesday meeting</a></li><li class="chapter-item "><a href="workflows/releases.html"><strong aria-hidden="true">14.</strong> Releases</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -149,14 +149,131 @@
 <p>This guide is meant to help document how Rspack works, as well as to help new contributors get involved in Rspack development.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-build-and-run-the-compiler"><a class="header" href="#how-to-build-and-run-the-compiler">How to build and run the compiler</a></h1>
+<p>Please see <a href="building/prerequisites.html">prerequisites</a> for setting up Rust and Node.js.</p>
 <h2 id="zx--the-build-tool-rspack-using"><a class="header" href="#zx--the-build-tool-rspack-using">zx —— The build tool Rspack using</a></h2>
+<h3 id="running-setup-script"><a class="header" href="#running-setup-script">Running setup script</a></h3>
+<p>Make sure you are under the workspace root</p>
+<pre><code class="language-bash">node ./scripts/meta/setup.js
+</code></pre>
+<h3 id="install-nodejs-dependencies"><a class="header" href="#install-nodejs-dependencies">Install Node.js dependencies</a></h3>
+<p>Install Node.js dependencies via <a href="https://pnpm.io/">pnpm</a>.</p>
+<pre><code class="language-bash"># enable pnpm with corepack, only available on node &gt;= `v14.19.0`
+corepack enable
+
+# or install pnpm directly
+npm install -g pnpm@7
+
+# Install dependencies
+pnpm run init
+</code></pre>
+<h3 id="setup-protoc-for-sass-embedded"><a class="header" href="#setup-protoc-for-sass-embedded">Setup protoc for sass-embedded</a></h3>
+<ul>
+<li>Install <a href="https://grpc.io/docs/protoc-installation/">protoc</a> for building <code>sass-embedded</code>.</li>
+</ul>
+<h2 id="building-rspack"><a class="header" href="#building-rspack">Building Rspack</a></h2>
+<ul>
+<li>Run <code>cargo build</code> to compile Rust code.</li>
+<li>Run <code>pnpm run build:cli:debug</code> to compile both Node.js and Rust code.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h1>
+<h2 id="setup-rust"><a class="header" href="#setup-rust">Setup Rust</a></h2>
+<ul>
+<li>Install Rust using <a href="https://rustup.rs/">rustup</a>.</li>
+<li>If you are using VSCode, we recommend installing the <a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer">rust-analyzer</a> extension.</li>
+</ul>
+<h2 id="setup-nodejs"><a class="header" href="#setup-nodejs">Setup Node.js</a></h2>
+<h3 id="install-nodejs"><a class="header" href="#install-nodejs">Install Node.js</a></h3>
+<p>We recommend using the LTS version of Node.js 16. You can check your currently used Node.js version with the following command:</p>
+<pre><code class="language-bash">node -v
+#v16.18.0
+</code></pre>
+<p>If you do not have Node.js installed in your current environment, you can use <a href="https://github.com/nvm-sh/nvm">nvm</a> or <a href="https://github.com/Schniz/fnm">fnm</a> to install it.</p>
+<p>Here is an example of how to install the Node.js 16 LTS version via nvm:</p>
+<pre><code class="language-bash"># Install the LTS version of Node.js 16
+nvm install 16 --lts
+
+# Make the newly installed Node.js 16 as the default version
+nvm alias default 16
+
+# Switch to the newly installed Node.js 16
+nvm use 16
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="suggested-workflows"><a class="header" href="#suggested-workflows">Suggested Workflows</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="testing"><a class="header" href="#testing">Testing</a></h1>
+<p>We currently have two sets of test suits, one for Rust and one for Node.js.</p>
+<h3 id="rust-testing"><a class="header" href="#rust-testing">Rust Testing</a></h3>
+<ul>
+<li><code>cargo test</code> will run all the rust side tests, which includes standalone tests for core functionality and plugins.</li>
+<li><code>UPDATE=1 cargo test</code> will automatically update the failed snapshot</li>
+</ul>
+<h3 id="node-testing"><a class="header" href="#node-testing">Node Testing</a></h3>
+<pre><code class="language-sh"># In root path
+pnpm --filter &quot;./packages/**&quot; run build &amp;&amp; pnpm --filter &quot;./packages/**&quot; run test
+</code></pre>
+<p>Or only test the package that you made the changes:</p>
+<pre><code class="language-sh"># In the Node.js package path
+pnpm run build &amp;&amp; pnpm run test
+</code></pre>
+<h3 id="node-testing-suit-overview"><a class="header" href="#node-testing-suit-overview">Node Testing Suit Overview</a></h3>
+<p>We use jest for nodejs tests, The most important test cases are the case in the <code>packages/rspack</code>. most of these cases comes from webpack https://github.com/webpack/webpack/tree/main/test because we want to make sure that Rspack can work as same as webpack.</p>
+<p>There are three kinds of integration cases in <code>@rspack/core</code>.</p>
+<h4 id="casetestts"><a class="header" href="#casetestts">case.test.ts</a></h4>
+<p>Cases are used to test normal build behavior, we use these cases to test against bundler core functionality, like <code>entry</code>, <code>output</code>, <code>module</code> <code>resolve</code>, etc. it will first build your test file to test whether the input could be compiled successfully, then it will use the bundled test file to run test cases in the test file to test bundler's all kinds of behavior.</p>
+<h4 id="configcasetestts"><a class="header" href="#configcasetestts">configCase.test.ts</a></h4>
+<p>Cases are used to test custom build behavior, you could use custom <code>webpack.config.js</code> to override default build behavior, you can use these cases to test against behavior related to specific config.</p>
+<h5 id="statstestcasetestts"><a class="header" href="#statstestcasetestts">statsTestCase.test.ts</a></h5>
+<p>Cases are used to test your stats, By Default we will use jest's snapshot to snapshot your stats, and we <strong>highly</strong> recommend to <strong>avoid</strong> snapshot except statsCase. you can use statsCase to test behaviors like code splitting | bundle splitting, which is hard to test by just running code.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="debugging"><a class="header" href="#debugging">Debugging</a></h1>
+<h2 id="debugging-with-vscode"><a class="header" href="#debugging-with-vscode">Debugging with VSCode</a></h2>
+<ol>
+<li>Install <code>go install github.com/go-delve/delve/cmd/dlv@latest</code></li>
+<li>Install vscode extension <a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer">rust-analyzer</a> and <a href="https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb">CodeLLDB</a></li>
+<li>build <code>@rspack/cli</code> and napi binding by run <code>pnpm -w build:cli:debug</code></li>
+<li>In Vscode's <code>Run and Debug</code> tab, select <code>debug-rspack</code> to start debugging the initial launch of <code>@rspack/cli</code>, This task is configured in <code>.vscode/launch.json</code>, which launch node debugger and rust debugger together. so you can debug both rust and nodejs code.</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="profiling"><a class="header" href="#profiling">Profiling</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="releasing"><a class="header" href="#releasing">Releasing</a></h1>
+<p>To make releasing easier, Rspack use github action to automate creating versioning pull requests, and optionally publishing packages.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="intro"><a class="header" href="#intro">Intro</a></h1>
 <p>Thank you for your interest in contributing to Rspack! There are many ways to contribute, and we appreciate all of them.</p>
+<h2 id="sending-a-pull-request"><a class="header" href="#sending-a-pull-request">Sending a Pull Request</a></h2>
+<ol>
+<li><a href="https://help.github.com/articles/fork-a-repo/">Fork</a> the Rspack repository into your own GitHub account.</li>
+<li><a href="https://help.github.com/articles/cloning-a-repository/">Clone</a> the repository to your local.</li>
+<li>Checkout a new branch from <code>main</code>.</li>
+<li>Set up the development environment, you can read the &quot;Setup Development Environment&quot; section below to learn about it.</li>
+<li>If you've fixed a bug or added code that should be tested, then add some tests.</li>
+<li>Make sure all the tests pass, you can read the &quot;Testing&quot; section below to learn about it.</li>
+<li>Run <code>pnpm run lint:js</code> and <code>pnpm run lint:rs</code> to check the code style.</li>
+<li>If you've changed some Node.js packages, you should add a new <a href="https://github.com/changesets/changesets">changeset</a>. Run <code>pnpm run changeset</code>, select the changed packages and add the changeset info.</li>
+<li>If you've changed some Rust packages, you should add a new <a href="https://github.com/changesets/changesets">changeset</a> for <code>@rspack/binding</code> package.</li>
+<li>Submit the Pull Request, make sure all CI runs pass.</li>
+<li>The maintainers will review your Pull Request soon.</li>
+</ol>
+<p>When submitting a Pull Request, please note the following:</p>
+<ul>
+<li>Keep your PRs small enough, so that each PR only addresses a single issue or adds a single feature.</li>
+<li>Please include an appropriate description in the PR, and link related issues.</li>
+</ul>
+<h3 id="format-of-pr-titles"><a class="header" href="#format-of-pr-titles">Format of PR titles</a></h3>
+<p>The format of PR titles follow Conventional Commits.</p>
+<p>A example</p>
+<pre><code>feat(ui): Add `Button` component
+^    ^    ^
+|    |    |__ Subject
+|    |_______ Scope
+|____________ Type
+</code></pre>
+<p>Your PR</p>
+<ul>
+<li>must have a <code>Type</code></li>
+<li>Optionally have a <code>Scope</code>
+<ul>
+<li><code>Scope</code> should be lower case</li>
+</ul>
+</li>
+<li>must have a <code>Subject</code></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="about-the-team"><a class="header" href="#about-the-team">About the team</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="managing-labels"><a class="header" href="#managing-labels">Managing labels</a></h1>
 <p>This page explains the meanings of Rspack repository's labels.</p>
