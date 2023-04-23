@@ -11,4 +11,11 @@ renderer = ["html"]
 
 [output.html]
 
+[output.html.search]
+use-boolean-and = true
+
+[output.html.fold]
+enable = true
+level = 0
+
 [output.linkcheck]
