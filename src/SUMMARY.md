@@ -13,6 +13,7 @@
 - [Testing](./testing/intro.md)
 - [Debugging](./debugging/intro.md)
 - [Profiling](./profiling/intro.md)
+- [Releasing](./releasing/intro.md)
 
 # Contribution
 
