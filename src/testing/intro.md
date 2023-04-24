@@ -1,6 +1,6 @@
 # Testing
 
-We currently have two sets of test suits, one for Rust and one for Node.js.
+We currently have two sets of test suites, one for Rust and one for Node.js.
 
 ### Rust Testing
 
@@ -21,9 +21,9 @@ Or only test the package that you made the changes:
 pnpm run build && pnpm run test
 ```
 
-### Node Testing Suit Overview
+### Node Testing Suite Overview
 
-We use jest for nodejs tests, The most important test cases are the case in the `packages/rspack`. most of these cases comes from webpack https://github.com/webpack/webpack/tree/main/test because we want to make sure that Rspack can work as same as webpack.
+We use jest for Node.js tests, The most important test cases are the case in the `packages/rspack`. most of these cases comes from webpack https://github.com/webpack/webpack/tree/main/test because we want to make sure that Rspack can work as same as webpack.
 
 There are three kinds of integration cases in `@rspack/core`.
 
