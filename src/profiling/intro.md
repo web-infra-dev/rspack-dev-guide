@@ -58,8 +58,8 @@ In `crates/node_binding/Cargo.toml`, turn on debug symbols and disable symbol st
 
 ```toml
 [profile.release]
-debug = true
-strip = false
+debug = 1 # debug info with line tables only
+strip = false # do not strip symbols
 ```
 
 Then build the project
