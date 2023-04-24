@@ -145,7 +145,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="testing"><a class="header" href="#testing">Testing</a></h1>
-<p>We currently have two sets of test suits, one for Rust and one for Node.js.</p>
+<p>We currently have two sets of test suites, one for Rust and one for Node.js.</p>
 <h3 id="rust-testing"><a class="header" href="#rust-testing">Rust Testing</a></h3>
 <ul>
 <li><code>cargo test</code> will run all the rust side tests, which includes standalone tests for core functionality and plugins.</li>
@@ -159,8 +159,8 @@ pnpm --filter &quot;./packages/**&quot; run build &amp;&amp; pnpm --filter &quot
 <pre><code class="language-sh"># In the Node.js package path
 pnpm run build &amp;&amp; pnpm run test
 </code></pre>
-<h3 id="node-testing-suit-overview"><a class="header" href="#node-testing-suit-overview">Node Testing Suit Overview</a></h3>
-<p>We use jest for nodejs tests, The most important test cases are the case in the <code>packages/rspack</code>. most of these cases comes from webpack https://github.com/webpack/webpack/tree/main/test because we want to make sure that Rspack can work as same as webpack.</p>
+<h3 id="node-testing-suite-overview"><a class="header" href="#node-testing-suite-overview">Node Testing Suite Overview</a></h3>
+<p>We use jest for Node.js tests, The most important test cases are the case in the <code>packages/rspack</code>. most of these cases comes from webpack https://github.com/webpack/webpack/tree/main/test because we want to make sure that Rspack can work as same as webpack.</p>
 <p>There are three kinds of integration cases in <code>@rspack/core</code>.</p>
 <h4 id="casetestts"><a class="header" href="#casetestts">case.test.ts</a></h4>
 <p>Cases are used to test normal build behavior, we use these cases to test against bundler core functionality, like <code>entry</code>, <code>output</code>, <code>module</code> <code>resolve</code>, etc. it will first build your test file to test whether the input could be compiled successfully, then it will use the bundled test file to run test cases in the test file to test bundler's all kinds of behavior.</p>
