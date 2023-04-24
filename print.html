@@ -307,8 +307,8 @@ for profiling and creating the trace file.</p>
 It has the same effect.</p>
 <p>In <code>crates/node_binding/Cargo.toml</code>, turn on debug symbols and disable symbol stripping in the <code>[profile.release]</code> section</p>
 <pre><code class="language-toml">[profile.release]
-debug = true
-strip = false
+debug = 1 # debug info with line tables only
+strip = false # do not strip symbols
 </code></pre>
 <p>Then build the project</p>
 <pre><code class="language-bash">pnpm run build:cli:release
