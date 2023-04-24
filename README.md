@@ -7,7 +7,7 @@
 
 The development guide is a set of guidelines and instructions that help contributors understand how to work on Rspack. It covers everything from setting up the development environment to coding style and testing guidelines.
 
-[You can read the latest version of the guide here.](book-url)
+[You can read the latest version of the guide here.][book-url]
 
 [book-url]: https://web-infra-dev.github.io/rspack-dev-guide/
 
