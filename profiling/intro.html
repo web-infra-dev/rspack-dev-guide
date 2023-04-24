@@ -148,8 +148,33 @@
 <p>In this section, we'll explore how to profile Rspack for identifying bottlenecks.
 By examining where Rspack spends its time, we can gain insights into how to improve performance.</p>
 <ul>
+<li><a href="#tracing">Tracing</a>
+<ul>
+<li><a href="#chrome">Chrome</a></li>
+<li><a href="#terminal">Terminal</a></li>
+</ul>
+</li>
 <li><a href="#mac-xcode-instruments">Mac Xcode Instruments</a></li>
 </ul>
+<h2 id="tracing"><a class="header" href="#tracing">Tracing</a></h2>
+<p><a href="https://crates.io/crates/tracing"><code>tracing</code></a> is used to instrumenting Rspack.</p>
+<p>The supported tracing levels for</p>
+<ul>
+<li>release builds are <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
+<li>debug builds are <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
+</ul>
+<h3 id="chrome"><a class="header" href="#chrome">Chrome</a></h3>
+<p><a href="https://crates.io/crates/tracing-chrome"><code>tracing-chrome</code></a> is supported for viewing tracing information graphically.</p>
+<p>Setting the environment variable <code>layer</code> to <code>chrome</code> before running Rspack, for example</p>
+<pre><code class="language-bash">layer=chrome TRACE=TRACE pnpm run build
+</code></pre>
+<p>produces a trace file (<code>trace-timestamp.json</code>) in the current working directory.</p>
+<p>The JSON trace file can be viewed in either <code>chrome://tracing</code> or <a href="https://ui.perfetto.dev">ui.perfetto.dev</a>.</p>
+<h3 id="terminal"><a class="header" href="#terminal">Terminal</a></h3>
+<p>Granular tracing event values can be viewed inside the terminal via <code>layer=logger</code>, for example</p>
+<pre><code class="language-bash">layer=logger TRACE=TRACE pnpm run build
+</code></pre>
+<p>will print the options passed to Rspack as well as each individual tracing event.</p>
 <h2 id="mac-xcode-instruments"><a class="header" href="#mac-xcode-instruments">Mac Xcode Instruments</a></h2>
 <p>Xcode instruments can be used to produce a CPU profile if you are on a Mac.</p>
 <p>To install Xcode Instruments, simply install the Command Line Tools:</p>
