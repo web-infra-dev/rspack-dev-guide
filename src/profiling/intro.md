@@ -5,6 +5,39 @@ By examining where Rspack spends its time, we can gain insights into how to impr
 
 <!-- toc -->
 
+## Tracing
+
+[`tracing`](https://crates.io/crates/tracing) is used to instrumenting Rspack.
+
+The supported tracing levels for
+
+* release builds are `INFO`, `WARN` and `ERROR`
+* debug builds are `TRACE`, `DEBUG`, `INFO`, `WARN` and `ERROR`
+
+### Chrome
+
+[`tracing-chrome`](https://crates.io/crates/tracing-chrome) is supported for viewing tracing information graphically.
+
+Setting the environment variable `layer` to `chrome` before running Rspack, for example
+
+```bash
+layer=chrome TRACE=TRACE pnpm run build
+```
+
+produces a trace file (`trace-timestamp.json`) in the current working directory.
+
+The JSON trace file can be viewed in either `chrome://tracing` or [ui.perfetto.dev](https://ui.perfetto.dev).
+
+### Terminal
+
+Granular tracing event values can be viewed inside the terminal via `layer=logger`, for example
+
+```bash
+layer=logger TRACE=TRACE pnpm run build
+```
+
+will print the options passed to Rspack as well as each individual tracing event.
+
 ## Mac Xcode Instruments
 
 Xcode instruments can be used to produce a CPU profile if you are on a Mac.
