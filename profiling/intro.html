@@ -145,6 +145,43 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="profiling"><a class="header" href="#profiling">Profiling</a></h1>
+<p>In this section, we'll explore how to profile Rspack for identifying bottlenecks.
+By examining where Rspack spends its time, we can gain insights into how to improve performance.</p>
+<ul>
+<li><a href="#mac-xcode-instruments">Mac Xcode Instruments</a></li>
+</ul>
+<h2 id="mac-xcode-instruments"><a class="header" href="#mac-xcode-instruments">Mac Xcode Instruments</a></h2>
+<p>Xcode instruments can be used to produce a CPU profile if you are on a Mac.</p>
+<p>To install Xcode Instruments, simply install the Command Line Tools:</p>
+<pre><code class="language-bash">xcode-select --install
+</code></pre>
+<p>For normal Rust builds, <a href="https://github.com/cmyr/cargo-instruments"><code>cargo instruments</code></a> can be used as the glue
+for profiling and creating the trace file.</p>
+<p>Since Rspack takes quite a while to build, you can use the following procedure without invoking <code>cargo instruments</code>.
+It has the same effect.</p>
+<p>In <code>crates/node_binding/Cargo.toml</code>, turn on debug symbols and disable symbol stripping in the <code>[profile.release]</code> section</p>
+<pre><code class="language-toml">[profile.release]
+debug = true
+strip = false
+</code></pre>
+<p>Then build the project</p>
+<pre><code class="language-bash">pnpm run build:cli:release
+</code></pre>
+<p>The final binary is located at <code>packages/rspack-cli/bin/rspack</code> once the project is built.</p>
+<p>Under the hood, <code>cargo instruments</code> invokes the <code>xcrun</code> command,
+which means we can run the following in our own project that uses Rspack.</p>
+<pre><code class="language-bash">xcrun xctrace record --template 'Time Profile' --output . --launch -- /path/to/rspack/packages/rspack-cli/bin/rspack build
+</code></pre>
+<p>It produces the following output</p>
+<pre><code>Starting recording with the Time Profiler template. Launching process: rspack.
+Ctrl-C to stop the recording
+Target app exited, ending recording...
+Recording completed. Saving output file...
+Output file saved as: Launch_rspack_2023-04-24_11.32.06_9CFE3A63.trace
+</code></pre>
+<p>We can open the trace file by</p>
+<pre><code class="language-bash">open Launch_rspack_2023-04-24_11.32.06_9CFE3A63.trace
+</code></pre>
 
                     </main>
 
