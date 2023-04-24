@@ -1,5 +1,10 @@
 # Rspack Development Guide
 
+[![Build Status][ci-badge]][ci-url]
+
+[ci-badge]: https://github.com/web-infra-dev/rspack-dev-guide/actions/workflows/ci.yml/badge.svg?event=push&branch=main
+[ci-url]: https://github.com/web-infra-dev/rspack-dev-guide/actions/workflows/ci.yml?query=event%3Apush+branch%3Amain
+
 The development guide is a set of guidelines and instructions that help contributors understand how to work on Rspack. It covers everything from setting up the development environment to coding style and testing guidelines.
 
 The Rspack team believe that creating a development guide for Rspack is a great way to build a good relationship with the open source community. By providing clarity and consistency, lowering barriers to entry, building trust, and encouraging collaboration, we can create a strong and thriving open source project that people will want to contribute to.
