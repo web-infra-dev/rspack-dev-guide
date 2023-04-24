@@ -329,7 +329,41 @@ Output file saved as: Launch_rspack_2023-04-24_11.32.06_9CFE3A63.trace
 <pre><code class="language-bash">open Launch_rspack_2023-04-24_11.32.06_9CFE3A63.trace
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="releasing"><a class="header" href="#releasing">Releasing</a></h1>
-<p>To make releasing easier, Rspack use github action to automate creating versioning pull requests, and optionally publishing packages.</p>
+<p>All releases are automated through GitHub actions.</p>
+<p>All published releases of <code>@rspack/cli</code> can be found on the <a href="https://www.npmjs.com/package/@rspack/cli?activeTab=versions">npm versions page</a>. They are tagged as</p>
+<ul>
+<li><code>latest</code> with semver version <code>x.y.z</code></li>
+<li><code>nightly</code></li>
+<li><code>canary</code></li>
+</ul>
+<h2 id="latest-full-release"><a class="header" href="#latest-full-release">Latest Full Release</a></h2>
+<p>The <a href="https://github.com/web-infra-dev/rspack/actions/workflows/release.yml?query=is%3Asuccess">full release workflow</a>
+is currently triggered manually every Tuesday with full release notes.</p>
+<p>The following 9 targets are built</p>
+<ul>
+<li>x86_64-unknown-linux-gnu</li>
+<li>aarch64-unknown-linux-gnu</li>
+<li>x86_64-unknown-linux-musl</li>
+<li>aarch64-unknown-linux-musl</li>
+<li>i686-pc-windows-msvc</li>
+<li>x86_64-pc-windows-msvc</li>
+<li>aarch64-pc-windows-msvc</li>
+<li>x86_64-apple-darwin</li>
+<li>aarch64-apple-darwin</li>
+</ul>
+<h2 id="nightly"><a class="header" href="#nightly">Nightly</a></h2>
+<p>The <a href="https://github.com/web-infra-dev/rspack/actions/workflows/release-nightly.yml?query=is%3Asuccess">nightly release workflow</a>
+is triggered every day at UTC 16:00:07, which is 00:07 AM Beijing Time (offset with an odd minute to avoid cron jobs firing off at the same time).</p>
+<p>The nightly build fully replicates the full release build for catching errors early.</p>
+<h2 id="canary"><a class="header" href="#canary">Canary</a></h2>
+<p>Commenting on a PR with the text <code>!canary</code> triggers the <a href="https://github.com/web-infra-dev/rspack/actions/workflows/release-canary.yml?query=is%3Asuccess">canary release workflow</a>.
+Only contributors have the permission to publish canary releases.</p>
+<p>The canary release only builds three targets for quicker feedback</p>
+<ul>
+<li>aarch64-apple-darwin</li>
+<li>x86_64-apple-darwin</li>
+<li>x86_64-unknown-linux-gnu</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="intro"><a class="header" href="#intro">Intro</a></h1>
 <p>Thank you for your interest in contributing to Rspack! There are many ways to contribute, and we appreciate all of them.</p>
 <h2 id="sending-a-pull-request"><a class="header" href="#sending-a-pull-request">Sending a Pull Request</a></h2>
