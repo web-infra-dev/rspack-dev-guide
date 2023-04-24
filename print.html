@@ -184,12 +184,7 @@ Check out these other ways to get involved and start making a difference today.<
 <p>This guide is meant to help document how Rspack works, as well as to help new contributors get involved in Rspack development.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-to-build-and-run-the-compiler"><a class="header" href="#how-to-build-and-run-the-compiler">How to build and run the compiler</a></h1>
 <p>Please see <a href="building/prerequisites.html">prerequisites</a> for setting up Rust and Node.js.</p>
-<h2 id="zx--the-build-tool-rspack-using"><a class="header" href="#zx--the-build-tool-rspack-using">zx —— The build tool Rspack using</a></h2>
-<h3 id="running-setup-script"><a class="header" href="#running-setup-script">Running setup script</a></h3>
-<p>Make sure you are under the workspace root</p>
-<pre><code class="language-bash">node ./scripts/meta/setup.js
-</code></pre>
-<h3 id="install-nodejs-dependencies"><a class="header" href="#install-nodejs-dependencies">Install Node.js dependencies</a></h3>
+<h2 id="install-nodejs-dependencies"><a class="header" href="#install-nodejs-dependencies">Install Node.js dependencies</a></h2>
 <p>Install Node.js dependencies via <a href="https://pnpm.io/">pnpm</a>.</p>
 <pre><code class="language-bash"># enable pnpm with corepack, only available on node &gt;= `v14.19.0`
 corepack enable
@@ -198,7 +193,7 @@ corepack enable
 npm install -g pnpm@7
 
 # Install dependencies
-pnpm run init
+pnpm install
 </code></pre>
 <h3 id="setup-protoc-for-sass-embedded"><a class="header" href="#setup-protoc-for-sass-embedded">Setup protoc for sass-embedded</a></h3>
 <ul>
@@ -209,6 +204,7 @@ pnpm run init
 <li>Run <code>cargo build</code> to compile Rust code.</li>
 <li>Run <code>pnpm run build:cli:debug</code> to compile both Node.js and Rust code.</li>
 </ul>
+<p>The built binary is located at <code>packages/rspack-cli/bin/rspack</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h1>
 <h2 id="setup-rust"><a class="header" href="#setup-rust">Setup Rust</a></h2>
 <ul>
