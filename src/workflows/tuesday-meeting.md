@@ -24,9 +24,9 @@
 
 ### Discussions
 
-1. Go through issues/PRs with the label named `to be discuss`. [Link](https://github.com/web-infra-dev/rspack/labels/to%20be%20discuss)
+1. Go through issues/PRs with the label named `to be discussed`. [Link](https://github.com/web-infra-dev/rspack/labels/to%20be%20discussed)
 
-2. Go through discussions with the label named `to be discuss`. [Link](https://github.com/web-infra-dev/rspack/discussions/categories/core?discussions_q=is%3Aopen+category%3ACore+label%3A%22to+be+discuss%22)
+2. Go through discussions with the label named `to be discussed`. [Link](https://github.com/web-infra-dev/rspack/discussions/categories/core?discussions_q=is%3Aopen+category%3ACore+label%3A%22to+be+discussed%22)
 
 
 ## Related
