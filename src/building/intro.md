@@ -17,10 +17,6 @@ npm install -g pnpm@7
 pnpm install
 ```
 
-### Setup protoc for sass-embedded
-
-- Install [protoc](https://grpc.io/docs/protoc-installation/) for building `sass-embedded`.
-
 ## Building Rspack
 
 - Run `cargo build` to compile Rust code.
