@@ -148,9 +148,9 @@
 <h2 id="debugging-with-vscode"><a class="header" href="#debugging-with-vscode">Debugging with VSCode</a></h2>
 <ol>
 <li>Install <code>go install github.com/go-delve/delve/cmd/dlv@latest</code></li>
-<li>Install vscode extension <a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer">rust-analyzer</a> and <a href="https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb">CodeLLDB</a></li>
-<li>build <code>@rspack/cli</code> and napi binding by run <code>pnpm -w build:cli:debug</code></li>
-<li>In Vscode's <code>Run and Debug</code> tab, select <code>debug-rspack</code> to start debugging the initial launch of <code>@rspack/cli</code>, This task is configured in <code>.vscode/launch.json</code>, which launch node debugger and rust debugger together. so you can debug both rust and nodejs code.</li>
+<li>Install VSCode extension <a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer">rust-analyzer</a> and <a href="https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb">CodeLLDB</a></li>
+<li>build <code>@rspack/cli</code> and napi binding by run <code>pnpm install &amp;&amp; pnpm -w build:cli:debug</code></li>
+<li>In VSCode's <code>Run and Debug</code> tab, select <code>debug-rspack</code> to start debugging the initial launch of <code>@rspack/cli</code>. This task can be configured in <code>.vscode/launch.json</code>, which launches the Node and Rust debugger together.</li>
 </ol>
 
                     </main>
