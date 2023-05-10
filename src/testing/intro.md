@@ -2,12 +2,12 @@
 
 We currently have two sets of test suites, one for Rust and one for Node.js.
 
-### Rust Testing
+## Rust Testing
 
 - `cargo test` will run all the rust side tests, which includes standalone tests for core functionality and plugins.
 - `UPDATE=1 cargo test` will automatically update the failed snapshot
 
-### Node Testing
+## Node Testing
 
 ```sh
 # In root path
@@ -19,6 +19,12 @@ Or only test the package that you made the changes:
 ```sh
 # In the Node.js package path
 pnpm run build && pnpm run test
+```
+
+To update snapshots:
+
+```sh
+pnpm --filter '@rspack/*' test -- -u
 ```
 
 ### Node Testing Suite Overview
