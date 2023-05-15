@@ -260,6 +260,17 @@ pnpm run build &amp;&amp; pnpm run test
 <li>build <code>@rspack/cli</code> and napi binding by run <code>pnpm install &amp;&amp; pnpm -w build:cli:debug</code></li>
 <li>In VSCode's <code>Run and Debug</code> tab, select <code>debug-rspack</code> to start debugging the initial launch of <code>@rspack/cli</code>. This task can be configured in <code>.vscode/launch.json</code>, which launches the Node and Rust debugger together.</li>
 </ol>
+<h2 id="tracing"><a class="header" href="#tracing">Tracing</a></h2>
+<p><a href="https://crates.io/crates/tracing"><code>tracing</code></a> is used to instrumenting Rspack.</p>
+<p>The supported tracing levels for</p>
+<ul>
+<li>release builds are <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
+<li>debug builds are <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
+</ul>
+<p>Use the <code>TRACE</code> environment variable for displaying trace information</p>
+<pre><code class="language-bash">TRACE=TRACE pnpm run build
+TRACE=rspack_core::compiler::compilation pnpm run build # filter for an event
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="profiling"><a class="header" href="#profiling">Profiling</a></h1>
 <p>In this section, we'll explore how to profile Rspack for identifying bottlenecks.
 By examining where Rspack spends its time, we can gain insights into how to improve performance.</p>
@@ -272,7 +283,7 @@ By examining where Rspack spends its time, we can gain insights into how to impr
 </li>
 <li><a href="profiling/intro.html#mac-xcode-instruments">Mac Xcode Instruments</a></li>
 </ul>
-<h2 id="tracing"><a class="header" href="#tracing">Tracing</a></h2>
+<h2 id="tracing-1"><a class="header" href="#tracing-1">Tracing</a></h2>
 <p><a href="https://crates.io/crates/tracing"><code>tracing</code></a> is used to instrumenting Rspack.</p>
 <p>The supported tracing levels for</p>
 <ul>

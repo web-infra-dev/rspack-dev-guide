@@ -152,6 +152,17 @@
 <li>build <code>@rspack/cli</code> and napi binding by run <code>pnpm install &amp;&amp; pnpm -w build:cli:debug</code></li>
 <li>In VSCode's <code>Run and Debug</code> tab, select <code>debug-rspack</code> to start debugging the initial launch of <code>@rspack/cli</code>. This task can be configured in <code>.vscode/launch.json</code>, which launches the Node and Rust debugger together.</li>
 </ol>
+<h2 id="tracing"><a class="header" href="#tracing">Tracing</a></h2>
+<p><a href="https://crates.io/crates/tracing"><code>tracing</code></a> is used to instrumenting Rspack.</p>
+<p>The supported tracing levels for</p>
+<ul>
+<li>release builds are <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
+<li>debug builds are <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
+</ul>
+<p>Use the <code>TRACE</code> environment variable for displaying trace information</p>
+<pre><code class="language-bash">TRACE=TRACE pnpm run build
+TRACE=rspack_core::compiler::compilation pnpm run build # filter for an event
+</code></pre>
 
                     </main>
 
