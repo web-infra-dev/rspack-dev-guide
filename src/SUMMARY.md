@@ -17,7 +17,8 @@
 
 # Contribution
 
-- [Contribution Procedures](./contributing/intro.md)
+- [Contribution procedures](./contributing/intro.md)
+- [Minimal reproducible example](./contributing/repro.md)
 - [About the team](./contributing/team.md)
 - [Walkthrough: a typical contribution]()
 - [Managing labels](./contributing/managing-labels.md)
