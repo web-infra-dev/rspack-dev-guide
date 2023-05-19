@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Profiling - Rspack Development Guide</title>
+        <title>Minimal reproducible example - Rspack Development Guide</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../getting-started.html">Getting started</a></li><li class="chapter-item affix "><a href="../about-this-guide.html">About this guide</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item "><a href="../building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a></li><li class="chapter-item "><a href="../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item expanded "><a href="../profiling/intro.html" class="active"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item "><a href="../releasing/intro.html"><strong aria-hidden="true">5.</strong> Releasing</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../contributing/intro.html"><strong aria-hidden="true">6.</strong> Contribution procedures</a></li><li class="chapter-item "><a href="../contributing/repro.html"><strong aria-hidden="true">7.</strong> Minimal reproducible example</a></li><li class="chapter-item "><a href="../contributing/team.html"><strong aria-hidden="true">8.</strong> About the team</a></li><li class="chapter-item "><div><strong aria-hidden="true">9.</strong> Walkthrough: a typical contribution</div></li><li class="chapter-item "><a href="../contributing/managing-labels.html"><strong aria-hidden="true">10.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item "><a href="../architecture/intro.html"><strong aria-hidden="true">11.</strong> High level</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">11.1.</strong> Folder structures</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> Plugins</div></li><li class="chapter-item "><div><strong aria-hidden="true">13.</strong> Loaders</div></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Workflows</li><li class="chapter-item "><a href="../workflows/tuesday-meeting.html"><strong aria-hidden="true">14.</strong> Tuesday meeting</a></li><li class="chapter-item "><a href="../workflows/releases.html"><strong aria-hidden="true">15.</strong> Releases</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../getting-started.html">Getting started</a></li><li class="chapter-item affix "><a href="../about-this-guide.html">About this guide</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item "><a href="../building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a></li><li class="chapter-item "><a href="../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item "><a href="../profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item "><a href="../releasing/intro.html"><strong aria-hidden="true">5.</strong> Releasing</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../contributing/intro.html"><strong aria-hidden="true">6.</strong> Contribution procedures</a></li><li class="chapter-item expanded "><a href="../contributing/repro.html" class="active"><strong aria-hidden="true">7.</strong> Minimal reproducible example</a></li><li class="chapter-item "><a href="../contributing/team.html"><strong aria-hidden="true">8.</strong> About the team</a></li><li class="chapter-item "><div><strong aria-hidden="true">9.</strong> Walkthrough: a typical contribution</div></li><li class="chapter-item "><a href="../contributing/managing-labels.html"><strong aria-hidden="true">10.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item "><a href="../architecture/intro.html"><strong aria-hidden="true">11.</strong> High level</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">11.1.</strong> Folder structures</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">12.</strong> Plugins</div></li><li class="chapter-item "><div><strong aria-hidden="true">13.</strong> Loaders</div></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Workflows</li><li class="chapter-item "><a href="../workflows/tuesday-meeting.html"><strong aria-hidden="true">14.</strong> Tuesday meeting</a></li><li class="chapter-item "><a href="../workflows/releases.html"><strong aria-hidden="true">15.</strong> Releases</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,79 +144,29 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="profiling"><a class="header" href="#profiling">Profiling</a></h1>
-<p>In this section, we'll explore how to profile Rspack for identifying bottlenecks.
-By examining where Rspack spends its time, we can gain insights into how to improve performance.</p>
+                        <h1 id="minimal-reproducible-example"><a class="header" href="#minimal-reproducible-example">Minimal reproducible example</a></h1>
+<p>The <a href="https://github.com/web-infra-dev/rspack-repro">rspack repro template</a> can be used to create a minimal reproducible example.</p>
+<p>A minimal reproducible example (MRE) is a code that is:</p>
 <ul>
-<li><a href="#tracing">Tracing</a>
-<ul>
-<li><a href="#chrome">Chrome</a></li>
-<li><a href="#terminal">Terminal</a></li>
+<li>Short</li>
+<li>Self-contained</li>
+<li>Demonstrates the problem being encountered</li>
 </ul>
-</li>
-<li><a href="#mac-xcode-instruments">Mac Xcode Instruments</a></li>
-</ul>
-<h2 id="tracing"><a class="header" href="#tracing">Tracing</a></h2>
-<p><a href="https://crates.io/crates/tracing"><code>tracing</code></a> is used to instrumenting Rspack.</p>
-<p>The supported tracing levels for</p>
-<ul>
-<li>release builds are <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
-<li>debug builds are <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
-</ul>
-<h3 id="chrome"><a class="header" href="#chrome">Chrome</a></h3>
-<p><a href="https://crates.io/crates/tracing-chrome"><code>tracing-chrome</code></a> is supported for viewing tracing information graphically.</p>
-<p>Setting the environment variable <code>layer</code> to <code>chrome</code> before running Rspack, for example</p>
-<pre><code class="language-bash">layer=chrome TRACE=TRACE pnpm run build
-</code></pre>
-<p>produces a trace file (<code>trace-timestamp.json</code>) in the current working directory.</p>
-<p>The JSON trace file can be viewed in either <code>chrome://tracing</code> or <a href="https://ui.perfetto.dev">ui.perfetto.dev</a>.</p>
-<h3 id="terminal"><a class="header" href="#terminal">Terminal</a></h3>
-<p>Granular tracing event values can be viewed inside the terminal via <code>layer=logger</code>, for example</p>
-<pre><code class="language-bash">layer=logger TRACE=TRACE pnpm run build
-</code></pre>
-<p>will print the options passed to Rspack as well as each individual tracing event.</p>
-<h2 id="mac-xcode-instruments"><a class="header" href="#mac-xcode-instruments">Mac Xcode Instruments</a></h2>
-<p>Xcode instruments can be used to produce a CPU profile if you are on a Mac.</p>
-<p>To install Xcode Instruments, simply install the Command Line Tools:</p>
-<pre><code class="language-bash">xcode-select --install
-</code></pre>
-<p>For normal Rust builds, <a href="https://github.com/cmyr/cargo-instruments"><code>cargo instruments</code></a> can be used as the glue
-for profiling and creating the trace file.</p>
-<p>Since Rspack takes quite a while to build, you can use the following procedure without invoking <code>cargo instruments</code>.
-It has the same effect.</p>
-<p>In <code>crates/node_binding/Cargo.toml</code>, turn on debug symbols and disable symbol stripping in the <code>[profile.release]</code> section</p>
-<pre><code class="language-toml">[profile.release]
-debug = 1 # debug info with line tables only
-strip = false # do not strip symbols
-</code></pre>
-<p>Then build the project</p>
-<pre><code class="language-bash">pnpm run build:cli:release
-</code></pre>
-<p>The final binary is located at <code>packages/rspack-cli/bin/rspack</code> once the project is built.</p>
-<p>Under the hood, <code>cargo instruments</code> invokes the <code>xcrun</code> command,
-which means we can run the following in our own project that uses Rspack.</p>
-<pre><code class="language-bash">xcrun xctrace record --template 'Time Profile' --output . --launch -- /path/to/rspack/packages/rspack-cli/bin/rspack build
-</code></pre>
-<p>It produces the following output</p>
-<pre><code>Starting recording with the Time Profiler template. Launching process: rspack.
-Ctrl-C to stop the recording
-Target app exited, ending recording...
-Recording completed. Saving output file...
-Output file saved as: Launch_rspack_2023-04-24_11.32.06_9CFE3A63.trace
-</code></pre>
-<p>We can open the trace file by</p>
-<pre><code class="language-bash">open Launch_rspack_2023-04-24_11.32.06_9CFE3A63.trace
-</code></pre>
+<p>An MRE is essential because it allows us to quickly understand and reproduce your issue.
+This, in turn, increases the likelihood of getting a helpful and accurate response in a shorter amount of time.
+It is important to note that an MRE should not include extraneous code related to unrelated functionality,
+and should instead focus solely on the problem at hand.</p>
+<p>Please see also <a href="https://stackoverflow.com/help/minimal-reproducible-example">How to create a Minimal, Reproducible Example</a> from Stackoverflow.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../debugging/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../contributing/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../releasing/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../contributing/team.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -226,11 +176,11 @@ Output file saved as: Launch_rspack_2023-04-24_11.32.06_9CFE3A63.trace
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../debugging/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../contributing/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../releasing/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../contributing/team.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
