@@ -271,6 +271,32 @@ pnpm run build &amp;&amp; pnpm run test
 <pre><code class="language-bash">TRACE=TRACE pnpm run build
 TRACE=rspack_core::compiler::compilation pnpm run build # filter for an event
 </code></pre>
+<h2 id="rust-lldb"><a class="header" href="#rust-lldb">rust-lldb</a></h2>
+<p><code>rust-lldb</code> can be used to get panic information from debug builds</p>
+<pre><code class="language-bash">rust-lldb -- node /path/to/rspack build
+</code></pre>
+<p>Once it launches, press <code>r</code> for running the program.</p>
+<p>For example, <code>examples/arco-pro</code> crashes without any information before <a href="https://github.com/web-infra-dev/rspack/pull/3195/files">this fix</a>:</p>
+<pre><code>rspack/examples/arco-pro ❯ node ../../packages/rspack-cli/bin/rspack build
+Rspack ██████████████████████░░░░░░░░░░░░░░░░░░ 56% building ./pages/welcome
+zsh: bus error  node ../../packages/rspack-cli/bin/rspack build
+</code></pre>
+<p>Using <code>rust-lldb</code></p>
+<pre><code class="language-bash">rspack/examples/arco-pro ❯ rust-lldb -- node ../../packages/rspack-cli/bin/rspack build
+</code></pre>
+<p>Press <code>r</code> and it prints:</p>
+<pre><code>Process 23110 stopped
+* thread #10, name = 'tokio-runtime-worker', stop reason = EXC_BAD_ACCESS (code=2, address=0x70000cc66560)
+    frame #0: 0x0000000140d0db4b rspack.darwin-x64.node`swc_ecma_parser::parser::expr::ops::_$LT$impl$u20$swc_ecma_parser..parser..Parser$LT$I$GT$$GT$::parse_unary_expr::h29f49330a806839c(self=0x0000000000000000) at ops.rs:244
+   241 	    /// Parse unary expression and update expression.
+   242 	    ///
+   243 	    /// spec: 'UnaryExpression'
+-&gt; 244 	    pub(in crate::parser) fn parse_unary_expr(&amp;mut self) -&gt; PResult&lt;Box&lt;Expr&gt;&gt; {
+   245 	        trace_cur!(self, parse_unary_expr);
+   246 	        let start = cur_pos!(self);
+   247
+Target 0: (node) stopped.
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="profiling"><a class="header" href="#profiling">Profiling</a></h1>
 <p>In this section, we'll explore how to profile Rspack for identifying bottlenecks.
 By examining where Rspack spends its time, we can gain insights into how to improve performance.</p>
