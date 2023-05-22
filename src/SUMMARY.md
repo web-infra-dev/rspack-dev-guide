@@ -20,15 +20,15 @@
 - [Contribution procedures](./contributing/intro.md)
 - [Minimal reproducible example](./contributing/repro.md)
 - [About the team](./contributing/team.md)
-- [Walkthrough: a typical contribution]()
+<!-- - [Walkthrough: a typical contribution]() -->
 - [Managing labels](./contributing/managing-labels.md)
 
-# Architecture
+<!-- # Architecture -->
 
-- [High level](./architecture/intro.md)
-    - [Folder structures]()
-- [Plugins]()
-- [Loaders]()
+<!-- - [High level]() -->
+    <!-- - [Folder structures]() -->
+<!-- - [Plugins]() -->
+<!-- - [Loaders]() -->
 
 ---
 
