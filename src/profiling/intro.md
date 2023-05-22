@@ -11,8 +11,8 @@ By examining where Rspack spends its time, we can gain insights into how to impr
 
 The supported tracing levels for
 
-* release builds are `INFO`, `WARN` and `ERROR`
-* debug builds are `TRACE`, `DEBUG`, `INFO`, `WARN` and `ERROR`
+- release builds are `INFO`, `WARN` and `ERROR`
+- debug builds are `TRACE`, `DEBUG`, `INFO`, `WARN` and `ERROR`
 
 ### Chrome
 
@@ -37,6 +37,21 @@ layer=logger TRACE=TRACE pnpm run build
 ```
 
 will print the options passed to Rspack as well as each individual tracing event.
+
+### Nodejs Profiling
+
+If we find that the performance bottleneck is on the JS side (e.g. js loader), then we need to further analyse the js side, and we can use Nodejs Profiling to analyse. for example
+
+```bash
+node --cpu-prof {rspack_bin_path} -c rspack.config.js
+```
+
+this will generates a cpu profile like `CPU.20230522.154658.14577.0.001.cpuprofile`, and we can use speedscope to visualize the profile,for example
+
+```bash
+npm install -g speedscope
+speedscope CPU.20230522.154658.14577.0.001.cpuprofile
+```
 
 ## Mac Xcode Instruments
 
