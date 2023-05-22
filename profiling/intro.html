@@ -152,6 +152,7 @@ By examining where Rspack spends its time, we can gain insights into how to impr
 <ul>
 <li><a href="#chrome">Chrome</a></li>
 <li><a href="#terminal">Terminal</a></li>
+<li><a href="#nodejs-profiling">Nodejs Profiling</a></li>
 </ul>
 </li>
 <li><a href="#mac-xcode-instruments">Mac Xcode Instruments</a></li>
@@ -175,6 +176,14 @@ By examining where Rspack spends its time, we can gain insights into how to impr
 <pre><code class="language-bash">layer=logger TRACE=TRACE pnpm run build
 </code></pre>
 <p>will print the options passed to Rspack as well as each individual tracing event.</p>
+<h3 id="nodejs-profiling"><a class="header" href="#nodejs-profiling">Nodejs Profiling</a></h3>
+<p>If we find that the performance bottleneck is on the JS side (e.g. js loader), then we need to further analyse the js side, and we can use Nodejs Profiling to analyse. for example</p>
+<pre><code class="language-bash">node --cpu-prof {rspack_bin_path} -c rspack.config.js
+</code></pre>
+<p>this will generates a cpu profile like <code>CPU.20230522.154658.14577.0.001.cpuprofile</code>, and we can use speedscope to visualize the profile,for example</p>
+<pre><code class="language-bash">npm install -g speedscope
+speedscope CPU.20230522.154658.14577.0.001.cpuprofile
+</code></pre>
 <h2 id="mac-xcode-instruments"><a class="header" href="#mac-xcode-instruments">Mac Xcode Instruments</a></h2>
 <p>Xcode instruments can be used to produce a CPU profile if you are on a Mac.</p>
 <p>To install Xcode Instruments, simply install the Command Line Tools:</p>
