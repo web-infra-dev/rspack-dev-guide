@@ -34,7 +34,7 @@
 
 # Workflows
 
-- [Tuesday meeting](./workflows/tuesday-meeting.md)
+- [Meetings](./workflows/meetings.md)
 - [Releases](./workflows/releases.md)
 - [Misc](./workflows/misc.md)
 
