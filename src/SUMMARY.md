@@ -11,6 +11,7 @@
     - [Prerequisites](./building/prerequisites.md)
     - [Suggested Workflows](./building/suggested.md)
 - [Testing](./testing/intro.md)
+    - [E2E](./testing/e2e.md)
 - [Debugging](./debugging/intro.md)
 - [Profiling](./profiling/intro.md)
 - [Releasing](./releasing/intro.md)
