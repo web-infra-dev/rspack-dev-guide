@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Meetings - Rspack Development Guide</title>
+        <title>E2E - Rspack Development Guide</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../getting-started.html">Getting started</a></li><li class="chapter-item affix "><a href="../about-this-guide.html">About this guide</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item "><a href="../building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../testing/e2e.html"><strong aria-hidden="true">2.1.</strong> E2E</a></li></ol></li><li class="chapter-item "><a href="../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item "><a href="../profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item "><a href="../releasing/intro.html"><strong aria-hidden="true">5.</strong> Releasing</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../contributing/intro.html"><strong aria-hidden="true">6.</strong> Contribution procedures</a></li><li class="chapter-item "><a href="../contributing/repro.html"><strong aria-hidden="true">7.</strong> Minimal reproducible example</a></li><li class="chapter-item "><a href="../contributing/team.html"><strong aria-hidden="true">8.</strong> About the team</a></li><li class="chapter-item "><a href="../contributing/managing-labels.html"><strong aria-hidden="true">9.</strong> Managing labels</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Workflows</li><li class="chapter-item expanded "><a href="../workflows/meetings.html" class="active"><strong aria-hidden="true">10.</strong> Meetings</a></li><li class="chapter-item "><a href="../workflows/releases.html"><strong aria-hidden="true">11.</strong> Releases</a></li><li class="chapter-item "><a href="../workflows/misc.html"><strong aria-hidden="true">12.</strong> Misc</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../getting-started.html">Getting started</a></li><li class="chapter-item affix "><a href="../about-this-guide.html">About this guide</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item "><a href="../building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item expanded "><a href="../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../testing/e2e.html" class="active"><strong aria-hidden="true">2.1.</strong> E2E</a></li></ol></li><li class="chapter-item "><a href="../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item "><a href="../profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item "><a href="../releasing/intro.html"><strong aria-hidden="true">5.</strong> Releasing</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../contributing/intro.html"><strong aria-hidden="true">6.</strong> Contribution procedures</a></li><li class="chapter-item "><a href="../contributing/repro.html"><strong aria-hidden="true">7.</strong> Minimal reproducible example</a></li><li class="chapter-item "><a href="../contributing/team.html"><strong aria-hidden="true">8.</strong> About the team</a></li><li class="chapter-item "><a href="../contributing/managing-labels.html"><strong aria-hidden="true">9.</strong> Managing labels</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Workflows</li><li class="chapter-item "><a href="../workflows/meetings.html"><strong aria-hidden="true">10.</strong> Meetings</a></li><li class="chapter-item "><a href="../workflows/releases.html"><strong aria-hidden="true">11.</strong> Releases</a></li><li class="chapter-item "><a href="../workflows/misc.html"><strong aria-hidden="true">12.</strong> Misc</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,25 +144,79 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="meetings"><a class="header" href="#meetings">Meetings</a></h1>
-<h2 id="tuesday-meeting"><a class="header" href="#tuesday-meeting">Tuesday meeting</a></h2>
-<ol>
-<li>Go through the <a href="https://github.com/web-infra-dev/rspack/milestones">iteration plan</a></li>
-</ol>
-<h2 id="thursday-meeting"><a class="header" href="#thursday-meeting">Thursday meeting</a></h2>
-<ol>
-<li>Go through any topics that need <a href="https://github.com/web-infra-dev/rspack/issues?q=is%3Aopen+label%3A%22to+be+discussed%22+sort%3Aupdated-desc">to be discussed</a></li>
-</ol>
+                        <h1 id="e2e"><a class="header" href="#e2e">E2E</a></h1>
+<p>The <code>packages/playground</code> provides e2e testing feature. We use <a href="https://github.com/Microsoft/playwright">playwright</a> as the e2e testing framework.</p>
+<h2 id="cases"><a class="header" href="#cases">Cases</a></h2>
+<p>The entry point of a test case is a file ending with <code>.test.ts</code>, and the parent directory of this file is the project directory.</p>
+<p>Here are some rules about test cases:</p>
+<ul>
+<li>The project directory must contain <code>rspack.config.js</code> to start the dev server.</li>
+<li>The project directory can contain multi <code>*.test.ts</code>.</li>
+<li>All test cases share dependencies, so just add dependencies in <code>packages/playground/package.json</code>.</li>
+<li>The cases folder should contain the category folders and then is the project folders. In principle, there should be no third-level directory.</li>
+</ul>
+<h2 id="fixtures"><a class="header" href="#fixtures">Fixtures</a></h2>
+<p>The <code>fixtures</code> is a feature of playwright, in short it provides a variable that is generated in before{Each|All} and destroyed in after{Each|All}. More information see <a href="https://playwright.dev/docs/test-fixtures">test-fixtures</a></p>
+<p>Here are some rules when defining a new fixture:</p>
+<ul>
+<li>Private fixtures should start with <code>_</code> and are used only in the current file.</li>
+<li>A file only provides fixtures with the same name.</li>
+<li>A file can only provide one option and starts with <code>default</code></li>
+<li>Register fixtures in <code>fixtures/index.ts</code> and export only necessary variables and types.</li>
+</ul>
+<p>Here are some existing fixtures:</p>
+<h4 id="pathinfo"><a class="header" href="#pathinfo">pathInfo</a></h4>
+<p>This fixture will generate test environment, and calculate the PathInfo.</p>
+<pre><code class="language-ts">type PathInfo = {
+    // test file path
+    testFile: string;
+    // project dir
+    testProjectDir: string
+    // temporary project directory to be copied into
+    tempProjectDir: string
+}
+</code></pre>
+<h4 id="rspack"><a class="header" href="#rspack">rspack</a></h4>
+<p>This fixture will start the rspack dev server and provide some useful methods.</p>
+<pre><code class="language-ts">type Rspack = {
+    // rspack running project directory
+    projectDir: string
+    // rspack compiler
+    compiler: Compiler
+    // rspack dev server
+    devServer: DevServer
+    // waiting for rspack build finish
+    waitingForBuild: () =&gt; Promise&lt;void&gt;
+    // waiting for hmr finish, the poll function is used to check
+    waitingForHmr: (poll: () =&gt; Promise&lt;boolean&gt;) =&gt; Promise&lt;void&gt;
+}
+</code></pre>
+<h4 id="fileaction"><a class="header" href="#fileaction">fileAction</a></h4>
+<p>This fixture will provide file change operations.</p>
+<pre><code class="language-ts">type fileAction = {
+    updateFile(relativePath: string, fn: (content: string) =&gt; string): void
+    deleteFile(relativePath: string): void
+}
+</code></pre>
+<h2 id="how-it-works"><a class="header" href="#how-it-works">How it works</a></h2>
+<ul>
+<li>playwright scan all test case and allocates a worker to run each case.</li>
+<li><code>pathInfo</code> copy the project directory corresponding to the current case to <code>temp/${worker_index}</code>.</li>
+<li><code>rspack</code> rewrite dev server port to <code>8000 + worker_index</code> and start compiler and dev server in <code>temp/${worker_index}</code>.</li>
+<li>run current tests.</li>
+<li><code>rspack</code> close dev server and compiler.</li>
+<li><code>pathInfo</code> clear <code>temp/${worker_index}</code></li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../contributing/managing-labels.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../testing/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../workflows/releases.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../debugging/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -172,11 +226,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../contributing/managing-labels.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../testing/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../workflows/releases.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../debugging/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
