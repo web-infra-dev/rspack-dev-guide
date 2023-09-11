@@ -14,26 +14,31 @@ The supported tracing levels for
 - release builds are `INFO`, `WARN` and `ERROR`
 - debug builds are `TRACE`, `DEBUG`, `INFO`, `WARN` and `ERROR`
 
+Two ways to enable tracing:
+
+- if you are using `@rspack/cli`, you can enable it by `RSPACK_PROFILE` environment variable.
+- if you are using `@rspack/core` without `@rspack/cli`, you can enable it by `experimental_registerGlobalTrace` and `experimental_cleanupGlobalTrace`, checkout [how we implement `RSPACK_PROFILE` in `@rspack/cli` with these two function](https://github.com/web-infra-dev/rspack/blob/25df2981ce1f0232ab05109c0995a249f57e2a09/packages/rspack-cli/src/utils/profile.ts#L186-L187) for more details.
+
 ### Chrome
 
 [`tracing-chrome`](https://crates.io/crates/tracing-chrome) is supported for viewing tracing information graphically.
 
-Setting the environment variable `layer` to `chrome` before running Rspack, for example
+Setting the environment variable `RSPACK_PROFILE=TRACE=layer=chrome` before running Rspack, for example
 
 ```bash
-layer=chrome TRACE=TRACE pnpm run build
+RSPACK_PROFILE=TRACE=layer=chrome rspack build
 ```
 
-produces a trace file (`trace-timestamp.json`) in the current working directory.
+produces a trace file (`.rspack-profile-${timestamp}/trace.json`) in the current working directory.
 
 The JSON trace file can be viewed in either `chrome://tracing` or [ui.perfetto.dev](https://ui.perfetto.dev).
 
 ### Terminal
 
-Granular tracing event values can be viewed inside the terminal via `layer=logger`, for example
+Granular tracing event values can be viewed inside the terminal via `RSPACK_PROFILE=TRACE=layer=logger`, for example
 
 ```bash
-layer=logger TRACE=TRACE pnpm run build
+RSPACK_PROFILE=TRACE=layer=logger rspack build
 ```
 
 will print the options passed to Rspack as well as each individual tracing event.
@@ -46,7 +51,13 @@ If we find that the performance bottleneck is on the JS side (e.g. js loader), t
 node --cpu-prof {rspack_bin_path} -c rspack.config.js
 ```
 
-this will generates a cpu profile like `CPU.20230522.154658.14577.0.001.cpuprofile`, and we can use speedscope to visualize the profile,for example
+or
+
+```bash
+RSPACK_PROFILE=JSCPU rspack build
+```
+
+this will generates a cpu profile like `CPU.20230522.154658.14577.0.001.cpuprofile`, and we can use speedscope to visualize the profile, for example
 
 ```bash
 npm install -g speedscope
