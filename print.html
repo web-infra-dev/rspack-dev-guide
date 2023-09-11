@@ -89,11 +89,33 @@
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -330,9 +352,9 @@ pnpm run build &amp;&amp; pnpm run test
 <li>release builds are <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
 <li>debug builds are <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
 </ul>
-<p>Use the <code>TRACE</code> environment variable for displaying trace information</p>
-<pre><code class="language-bash">TRACE=TRACE pnpm run build
-TRACE=rspack_core::compiler::compilation pnpm run build # filter for an event
+<p>Use the <code>RSPACK_PROFILE</code> environment variable for displaying trace information</p>
+<pre><code class="language-bash">RSPACK_PROFILE=TRACE=layer=logger rspack build
+RSPACK_PROFILE='TRACE=layer=logger&amp;filter=rspack_core::compiler::compilation' rspack build # filter for an event
 </code></pre>
 <h2 id="rust-lldb"><a class="header" href="#rust-lldb">rust-lldb</a></h2>
 <p><code>rust-lldb</code> can be used to get panic information from debug builds</p>
@@ -380,23 +402,31 @@ By examining where Rspack spends its time, we can gain insights into how to impr
 <li>release builds are <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
 <li>debug builds are <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
 </ul>
+<p>Two ways to enable tracing:</p>
+<ul>
+<li>if you are using <code>@rspack/cli</code>, you can enable it by <code>RSPACK_PROFILE</code> environment variable.</li>
+<li>if you are using <code>@rspack/core</code> without <code>@rspack/cli</code>, you can enable it by <code>experimental_registerGlobalTrace</code> and <code>experimental_cleanupGlobalTrace</code>, checkout <a href="https://github.com/web-infra-dev/rspack/blob/25df2981ce1f0232ab05109c0995a249f57e2a09/packages/rspack-cli/src/utils/profile.ts#L186-L187">how we implement <code>RSPACK_PROFILE</code> in <code>@rspack/cli</code> with these two function</a> for more details.</li>
+</ul>
 <h3 id="chrome"><a class="header" href="#chrome">Chrome</a></h3>
 <p><a href="https://crates.io/crates/tracing-chrome"><code>tracing-chrome</code></a> is supported for viewing tracing information graphically.</p>
-<p>Setting the environment variable <code>layer</code> to <code>chrome</code> before running Rspack, for example</p>
-<pre><code class="language-bash">layer=chrome TRACE=TRACE pnpm run build
+<p>Setting the environment variable <code>RSPACK_PROFILE=TRACE=layer=chrome</code> before running Rspack, for example</p>
+<pre><code class="language-bash">RSPACK_PROFILE=TRACE=layer=chrome rspack build
 </code></pre>
-<p>produces a trace file (<code>trace-timestamp.json</code>) in the current working directory.</p>
+<p>produces a trace file (<code>.rspack-profile-${timestamp}/trace.json</code>) in the current working directory.</p>
 <p>The JSON trace file can be viewed in either <code>chrome://tracing</code> or <a href="https://ui.perfetto.dev">ui.perfetto.dev</a>.</p>
 <h3 id="terminal"><a class="header" href="#terminal">Terminal</a></h3>
-<p>Granular tracing event values can be viewed inside the terminal via <code>layer=logger</code>, for example</p>
-<pre><code class="language-bash">layer=logger TRACE=TRACE pnpm run build
+<p>Granular tracing event values can be viewed inside the terminal via <code>RSPACK_PROFILE=TRACE=layer=logger</code>, for example</p>
+<pre><code class="language-bash">RSPACK_PROFILE=TRACE=layer=logger rspack build
 </code></pre>
 <p>will print the options passed to Rspack as well as each individual tracing event.</p>
 <h3 id="nodejs-profiling"><a class="header" href="#nodejs-profiling">Nodejs Profiling</a></h3>
 <p>If we find that the performance bottleneck is on the JS side (e.g. js loader), then we need to further analyse the js side, and we can use Nodejs Profiling to analyse. for example</p>
 <pre><code class="language-bash">node --cpu-prof {rspack_bin_path} -c rspack.config.js
 </code></pre>
-<p>this will generates a cpu profile like <code>CPU.20230522.154658.14577.0.001.cpuprofile</code>, and we can use speedscope to visualize the profile,for example</p>
+<p>or</p>
+<pre><code class="language-bash">RSPACK_PROFILE=JSCPU rspack build
+</code></pre>
+<p>this will generates a cpu profile like <code>CPU.20230522.154658.14577.0.001.cpuprofile</code>, and we can use speedscope to visualize the profile, for example</p>
 <pre><code class="language-bash">npm install -g speedscope
 speedscope CPU.20230522.154658.14577.0.001.cpuprofile
 </code></pre>

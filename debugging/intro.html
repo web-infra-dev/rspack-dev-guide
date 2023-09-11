@@ -88,11 +88,33 @@
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
@@ -159,9 +181,9 @@
 <li>release builds are <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
 <li>debug builds are <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code> and <code>ERROR</code></li>
 </ul>
-<p>Use the <code>TRACE</code> environment variable for displaying trace information</p>
-<pre><code class="language-bash">TRACE=TRACE pnpm run build
-TRACE=rspack_core::compiler::compilation pnpm run build # filter for an event
+<p>Use the <code>RSPACK_PROFILE</code> environment variable for displaying trace information</p>
+<pre><code class="language-bash">RSPACK_PROFILE=TRACE=layer=logger rspack build
+RSPACK_PROFILE='TRACE=layer=logger&amp;filter=rspack_core::compiler::compilation' rspack build # filter for an event
 </code></pre>
 <h2 id="rust-lldb"><a class="header" href="#rust-lldb">rust-lldb</a></h2>
 <p><code>rust-lldb</code> can be used to get panic information from debug builds</p>
