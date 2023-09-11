@@ -16,11 +16,11 @@ The supported tracing levels for
 * release builds are `INFO`, `WARN` and `ERROR`
 * debug builds are `TRACE`, `DEBUG`, `INFO`, `WARN` and `ERROR`
 
-Use the `TRACE` environment variable for displaying trace information
+Use the `RSPACK_PROFILE` environment variable for displaying trace information
 
 ```bash
-TRACE=TRACE pnpm run build
-TRACE=rspack_core::compiler::compilation pnpm run build # filter for an event
+RSPACK_PROFILE=TRACE=layer=logger rspack build
+RSPACK_PROFILE='TRACE=layer=logger&filter=rspack_core::compiler::compilation' rspack build # filter for an event
 ```
 
 ## rust-lldb
