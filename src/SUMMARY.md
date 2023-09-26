@@ -24,7 +24,12 @@
 <!-- - [Walkthrough: a typical contribution]() -->
 - [Managing labels](./contributing/managing-labels.md)
 
-<!-- # Architecture -->
+# Architecture
+  - [rspack](./architecture/rspack/intro.md)
+    - [loader](./architecture/rspack/loader.md)
+  - [webpack](./architecture/webpack/intro.md)
+    - [loader](./architecture/webpack/loader.md)
+    - [dependency](./architecture/webpack/dependency.md)
 
 <!-- - [High level]() -->
     <!-- - [Folder structures]() -->
