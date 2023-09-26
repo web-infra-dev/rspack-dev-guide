@@ -1,0 +1,865 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>loader - Rspack Development Guide</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../../getting-started.html">Getting started</a></li><li class="chapter-item affix "><a href="../../about-this-guide.html">About this guide</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item "><a href="../../building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="../../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../testing/e2e.html"><strong aria-hidden="true">2.1.</strong> E2E</a></li></ol></li><li class="chapter-item "><a href="../../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item "><a href="../../profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item "><a href="../../releasing/intro.html"><strong aria-hidden="true">5.</strong> Releasing</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../../contributing/intro.html"><strong aria-hidden="true">6.</strong> Contribution procedures</a></li><li class="chapter-item "><a href="../../contributing/repro.html"><strong aria-hidden="true">7.</strong> Minimal reproducible example</a></li><li class="chapter-item "><a href="../../contributing/team.html"><strong aria-hidden="true">8.</strong> About the team</a></li><li class="chapter-item "><a href="../../contributing/managing-labels.html"><strong aria-hidden="true">9.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item "><a href="../../architecture/rspack/intro.html"><strong aria-hidden="true">10.</strong> rspack</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../architecture/rspack/loader.html"><strong aria-hidden="true">10.1.</strong> loader</a></li></ol></li><li class="chapter-item expanded "><a href="../../architecture/webpack/intro.html"><strong aria-hidden="true">11.</strong> webpack</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../architecture/webpack/loader.html" class="active"><strong aria-hidden="true">11.1.</strong> loader</a></li><li class="chapter-item "><a href="../../architecture/webpack/dependency.html"><strong aria-hidden="true">11.2.</strong> dependency</a></li><li class="spacer"></li></ol></li><li class="chapter-item "><li class="part-title">Workflows</li><li class="chapter-item "><a href="../../workflows/meetings.html"><strong aria-hidden="true">12.</strong> Meetings</a></li><li class="chapter-item "><a href="../../workflows/releases.html"><strong aria-hidden="true">13.</strong> Releases</a></li><li class="chapter-item "><a href="../../workflows/misc.html"><strong aria-hidden="true">14.</strong> Misc</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rspack Development Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <blockquote>
+<p>Based on <em>Webpack version: 5.73.0</em>.</p>
+</blockquote>
+<h1 id="summary"><a class="header" href="#summary">Summary</a></h1>
+<p>Explain how webpack loader works. Even though it's a little bit long and tedious, It's still a teeny-tiny peek at the loader system of Webpack.</p>
+<h1 id="glossary"><a class="header" href="#glossary">Glossary</a></h1>
+<blockquote>
+<p>What's the meaning of a word used to describe a feature?</p>
+<p>Why does the Webpack introduce this and what's the background of introducing this? What kind of problem Webpack was facing at the time?</p>
+</blockquote>
+<h2 id="request-related"><a class="header" href="#request-related">Request Related</a></h2>
+<pre><code class="language-javascript">import Styles from '!style-loader!css-loader?modules!./styles.css';
+</code></pre>
+<ul>
+<li><a href="https://webpack.js.org/concepts/loaders/#inline">Inline loader syntax</a>: The syntax that chains the loader together within the specifier, followed by the file requested. e.g. <code>!style-loader!css-loader?modules!./style.css</code></li>
+<li><code>request</code>: The request with <em>inline loader syntax</em> retained. Webpack will convert relative URLs and module requests to absolute URLs for loaders and files requested. e.g. <code>!full-path-to-the-loader-separated-with-exclamation-mark!full-path-to-styles.css</code></li>
+</ul>
+<h2 id="resource-related"><a class="header" href="#resource-related">Resource Related</a></h2>
+<pre><code class="language-javascript">import xxx from &quot;./index.js?vue=true&amp;style#some-fragment&quot;
+</code></pre>
+<ul>
+<li>
+<p><a href="https://webpack.js.org/api/loaders/#thisresource"><code>resource</code></a>: The absolute path to the requested file with <code>query</code> and <code>fragment</code> retained but inline loader syntax removed. e.g. <code>absolute-path-to-index-js.js?vue=true&amp;style#some-fragment</code></p>
+</li>
+<li>
+<p><a href="https://webpack.js.org/api/loaders/#thisresourcepath"><code>resourcePath</code></a>: The absolute path to the requested file only. e.g. <code>absolute-path-to-index-js.js</code></p>
+</li>
+<li>
+<p><a href="https://webpack.js.org/api/loaders/#thisresourcequery"><code>resourceQuery</code></a>: Query with question mark <code>?</code>  included. e.g. <code>?vue=true&amp;style</code></p>
+</li>
+<li>
+<p><a href="https://webpack.js.org/api/loaders/#thisresourcefragment"><code>resourceFragment</code></a>:  e.g. <code>#some-fragment</code></p>
+</li>
+<li>
+<p>inline match resource: </p>
+<ul>
+<li>Used to redirect the <code>module.rules</code> to another, which is able to adjust the loader chain. We will cover this later.</li>
+<li>Ref: <a href="https://github.com/webpack/webpack/pull/7462">related PR</a> <a href="https://webpack.js.org/api/loaders/#thisimportmodule">Webpack Doc1</a> <a href="https://webpack.js.org/api/loaders/#inline-matchresource">Webpack Doc2</a> </li>
+</ul>
+</li>
+<li>
+<p><code>virtualResource</code>:</p>
+<ul>
+<li>The proposed solution to support asset type changing(A sugar to inline matchResource, which can also affect the asset filename generation)</li>
+<li>See more: <a href="https://github.com/webpack/webpack/issues/14851">the background of this property</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="others-but-also-important-to-note"><a class="header" href="#others-but-also-important-to-note">Others but also important to note</a></h2>
+<ul>
+<li>Virtual Module: A kind of module that does not locate in the real file system. But you can still import it. To create a virtual module, you need to follow the <a href="https://www.ietf.org/rfc/rfc2397.txt">spec</a> and it's also worth noting that Node.js and Webpack both support it under the scheme of <code>data:</code>. Also known as, <code>data:</code> import. <a href="https://nodejs.org/api/esm.html#data-imports">Doc to Node.js</a></li>
+<li><a href="https://webpack.js.org/concepts/modules/#supported-module-types">Module types</a> with native support: Webpack supports the following module types native: <code>'javascript/auto'</code> |<code> 'javascript/dynamic'</code> | <code>'javascript/esm'</code> | <code>'json'</code> | <code>'webassembly/sync'</code> | <code>'webassembly/async'</code> | <code>'asset'</code> | <code>'asset/source'</code> | <code>'asset/resource'</code> | <code>'asset/inline'</code>, for those types you can use it <strong>without a loader</strong>. From webpack version 4.0+, webpack can understand more than <code>javascript</code> alone.</li>
+</ul>
+<h1 id="guide-level-explanation"><a class="header" href="#guide-level-explanation">Guide-level explanation</a></h1>
+<h2 id="loader-configuration"><a class="header" href="#loader-configuration">Loader configuration</a></h2>
+<p>The way that webpack controls what kind of module that each loader would apply is based on <code>module.rules</code></p>
+<pre><code class="language-javascript">const MiniExtractCssPlugin = require(&quot;mini-extract-css-plugin&quot;)
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        use: [&quot;vue-loader&quot;]
+      },
+      {
+        test: /\.css$/,
+        use: [MiniExtractCssPlugin.loader, &quot;css-loader&quot;]
+      }
+    ]
+  },
+  plugins: [new MiniExtractCssPlugin()]
+}
+</code></pre>
+<p>Here is a simple option for the configuration of <code>vue-loader</code>. <code>module.rules[number].test</code> is a part rule to test <strong>whether a rule should be applied</strong>. For <code>vue-loader</code> alone, It's kind of confusing how webpack pass the result to the rule of <code>css</code>, we will cover this later. But for now, It's good to notice <strong>there is not only a <code>test</code> option alone to test if a rule should be applied</strong>. You can find it <a href="https://webpack.js.org/configuration/module/#rule">here</a> for full conditions supported. Here're some examples of other conditions you can use.</p>
+<pre><code class="language-javascript">module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.vue$/, // of course, test if the file extension match `vue`.
+        scheme: &quot;data&quot;, // if the specifier of a request starts with `data:`
+        resourceQuery: &quot;?raw&quot;, // if the `resourceQuery` matches then the rule will be applied. For this example, it's a great idea to apply a `raw-loader` here.
+        type: &quot;css&quot; // use webpack's native resource handling for css
+      }
+    ]
+  }
+}
+</code></pre>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<h3 id="vue1-to-n"><a class="header" href="#vue1-to-n">Vue(1 to n)</a></h3>
+<p>In a single file component(SFC) of Vue, there are commonly three blocks or more blocks(<a href="https://vue-loader.vuejs.org/guide/custom-blocks.html#example">custom blocks</a>) contained. The basic idea of implementing this loader is to convert it into JavaScript / CSS and let webpack handle the chunk generation(e.g. Style should be generated into a separate <code>.css</code> file)</p>
+<pre><code class="language-vue">&lt;template&gt;&lt;/template&gt;
+
+&lt;style&gt;&lt;/style&gt;
+
+&lt;script&gt;&lt;/script&gt;
+</code></pre>
+<p>⬇️⬇️⬇️⬇️⬇️⬇️</p>
+<p><code>Vue-loader</code> will firstly turn into the <code>*.vue</code> file into something like that.</p>
+<pre><code class="language-javascript">import &quot;script-path-to-vue-sfc&quot;;
+import &quot;template-path-to-vue-sfc&quot;;
+import &quot;style-path-to-vue-sfc&quot;;
+</code></pre>
+<p>You may find it weird how webpack handles these imports and build the transformed code. But if I change the code a little bit, you will find the idea.</p>
+<pre><code class="language-javascript">import &quot;script:path-to-vue-sfc&quot;;
+import &quot;template:path-to-vue-sfc&quot;;
+import &quot;style:path-to-vue-sfc&quot;;
+</code></pre>
+<p>and if we tweak the configuration a little bit to this, webpack will know exactly how to work with these import statements.</p>
+<pre><code class="language-javascript">module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        use: [&quot;vue-loader&quot;]
+      },
+      {
+        scheme: &quot;script&quot;,
+        use: [&quot;apply-your-javascript-loader&quot;, &quot;vue-script-extract-loader&quot;]
+      },
+      {
+        scheme: &quot;template&quot;,
+        use: [&quot;apply-your-javascript-loader&quot;, &quot;vue-template-extract-loader&quot;]
+      },
+      {
+        scheme: &quot;style&quot;,
+        use: [&quot;apply-your-style-loader&quot;, &quot;vue-style-extract-loader&quot;]
+      }
+    ]
+  }
+}
+</code></pre>
+<p>We added a few loaders to handle the splitting. I know it's still kind of weird here, but please stick with me and we will find a better way out.</p>
+<ul>
+<li>vue-script-extract-loader: extract the <code>script</code> block from a SFC file.</li>
+<li>vue-style-extract-loader: extract the <code>style</code> block from a SFC file.</li>
+<li>vue-template-extract-loader: extract the <code>template</code> block from a SFC file and convert it into JavaScript.</li>
+</ul>
+<p>You will find it's really noisy only to transform a <code>*.vue</code> file, four loaders were introduced and I believe none of you would like to separate a simple loader into four. It's a real bummer! It will be great to use a single loader <code>vue-loader</code> alone. The current vue loader implementation uses resourceQuery to handle this. But how?</p>
+<h4 id="loader-optimizations-i"><a class="header" href="#loader-optimizations-i">Loader optimizations I</a></h4>
+<p>We know that webpack uses a few conditions to handle whether a rule should be applied. Even with <code>rule.test</code> alone, the <code>this.reousrceQuery</code> is still available to <code>loaderContext</code> which developer could access it with <code>this</code> in any loader function(Don't worry if you still don't catch this. You will understand this after). Based on that, we change the <code>rule</code> to this: </p>
+<pre><code class="language-javascript">module.exports = {
+  module: {
+    rules: [
+      {
+        test: /.vue$/,
+        use: [&quot;vue-loader&quot;]
+      }
+    ]
+  }
+}
+</code></pre>
+<p>This indicates &quot;If an import specifier is encountered, please pass me to vue-loader&quot;! If you remember the import transformation above, we could adjust the transformation a little bit to this:</p>
+<p><strong>Before</strong></p>
+<pre><code class="language-javascript">import &quot;script-path-to-vue-sfc&quot;;
+import &quot;template-path-to-vue-sfc&quot;;
+import &quot;style-path-to-vue-sfc&quot;;
+</code></pre>
+<p><strong>After</strong></p>
+<pre><code class="language-javascript">import &quot;path-to-vue-sfc.vue?script=true&quot;;
+import &quot;path-to-vue-sfc.vue?template=true&quot;;
+import &quot;path-to-vue-sfc.vue?style=true&quot;;
+</code></pre>
+<p>These requests will match the <code>test: /.vue$/</code> above flawlessly and in the loader we can handle like this:</p>
+<pre><code class="language-javascript">// pseudo code only for proofing of the concept
+const compiler = require(&quot;some-vue-template-compiler&quot;)
+
+const loader = function(source) {
+  const { 
+    resourceQuery /* ?script=true or something else */, 
+    resourcePath /* path-to-vue-sfc.vue */
+  } = this
+  
+  if (resourceQuery === &quot;?script=true&quot;) {
+    return compiler.giveMeCodeofScriptBlock(this.resourcePath) // javascript code
+  } else if (resourceQuery === &quot;?template=true&quot;) {
+    return compiler.giveMeCodeofTemplateBlock(this.resourcePath) // javascript code
+  } else if (resourceQuery === &quot;?style=true&quot;) {
+    return compiler.giveMeCodeofStyleBlock(this.resourcePath) // style code
+  } else {
+    return `
+    	import `${this.resourcePath}?script=true`;
+    	import `${this.resourcePath}?template=true`;
+    	import `${this.resourcePath}?style=true`;
+    `
+  }
+}
+
+module.exports = loader
+</code></pre>
+<p>You can see the loader for the example above will be used for four times.</p>
+<ol>
+<li>Encounter a <code>*.vue</code> file, transform the code to a few import statements</li>
+<li>For each import statement introduced in the first transformation, the loader will be used again as they share the same extension <code>vue</code>.</li>
+</ol>
+<p>Is this the end? No! Even if you wrote the code like this, it will still fail to load. </p>
+<ol>
+<li>For CSS: You haven't tell webpack a way to handle the CSS, remember the CSS part is required to go through the <code>css-loader</code> and then <code>mini-css-extract</code>(if you want to generate CSS for chunk) or <code>style-loader</code>(if you want to append it directly to the DOM). After all, you have to make the result of style to pass these loaders.</li>
+<li>For JS: You haven't transformed the code to any transpilers, It will be failed if your runtime doesn't support the syntax(maybe in TypeScript for example) and webpack internal acorn compiler does not have the ability to help you with that.</li>
+</ol>
+<p><strong>Pass the code to the corresponding loaders</strong></p>
+<p>We tweak the configuration a little bit again.</p>
+<pre><code class="language-javascript">module.exports = {
+  module: {
+    rules: [
+      {
+        test: /.vue$/,
+        use: [&quot;vue-loader&quot;]
+      },
+      {
+        test: /.css$/,
+        use: [MiniCssExtractPlugin.loader, &quot;css-loader&quot;]
+      },
+      {
+        test: /.js$/,
+        use: [&quot;babel-loader&quot;]
+      }
+    ]
+  }
+}
+</code></pre>
+<p>It looks a bit more like the &quot;normal&quot; Webpack configuration. Note that the <code>rule.test</code> is based on the file extension, so <code>vue-loader</code> did a little bit of hack here.</p>
+<pre><code class="language-javascript">// pseudo code only for proofing of the concept
+const compiler = require(&quot;some-vue-template-compiler&quot;)
+
+const loader = function(source) {
+  const { 
+    resourceQuery /* ?script=true or something else */, 
+    resourcePath /* path-to-vue-sfc.vue */
+  } = this
+  
+  if (resourceQuery === &quot;?script=true&quot;) {
+    const code = compiler.giveMeCodeofScriptBlock(this.resourcePath) // javascript code
+    this.resourcePath += &quot;.js&quot;
+    return code
+  } else if (resourceQuery === &quot;?template=true&quot;) {
+    const code = compiler.giveMeCodeofTemplateBlock(this.resourcePath) // javascript code
+    this.resourcePath += &quot;.js&quot;
+    return code
+  } else if (resourceQuery === &quot;?style=true&quot;) {
+    const code = compiler.giveMeCodeofStyleBlock(this.resourcePath) // style code
+    this.resourcePath += &quot;.css&quot; // based on the `lang` in each script, the extension will be set accordingly.
+    return code
+  } else {
+    return `
+    	import `${this.resourcePath}?script=true`;
+    	import `${this.resourcePath}?template=true`;
+    	import `${this.resourcePath}?style=true`;
+    `
+  }
+}
+
+module.exports = loader
+</code></pre>
+<p>Webpack uses <code>resourcePath</code> to match a <code>module.rules</code>. So this hack will let webpack treat blocks accordingly as if they are real files with extensions of <code>js</code> | <code>css</code> |<code>...</code> .</p>
+<p>Finally! But this is only a proof of concept, for the real implementation. You should definitely check out the <a href="https://github.com/vuejs/vue-loader"><code>vue-loader</code></a> yourself.</p>
+<h4 id="loader-optimization-ii"><a class="header" href="#loader-optimization-ii">Loader Optimization II</a></h4>
+<p>Well done! We implemented a simple and rudimentary version of <code>vue-loader</code>. However, the real pain-in-the-ass part of this implementation is hacking the extension to match the configuration. But since almost every user would have other <code>js</code> | <code>css</code> files included in the project, so vue team decide to use this kind of strategy to reuse the user configuration.</p>
+<p>Except for hacking the extension, webpack then provided a more legit way to handle this kind of <strong>rule matching problem</strong> which is known as <em><strong>inline match resource</strong></em> (We covered it in the glossary part).</p>
+<p><strong>inline match resource</strong></p>
+<p>Webpack can do almost anything with an import specifier like the loader chaining we covered in the glossary part. <em>Inline source match</em> is another case. By taking the advantage of it, you can force an import statement to go through a <code>module.rules</code> by introducing the <code>!=!</code> syntax. For example, if we want to force a <code>css</code> file to go through a <code>less</code> loader, it will be look like this:</p>
+<pre><code class="language-javascript">module.exports = {
+  module: {
+    rules: [
+      {
+        test: /.less$/,
+        use: [&quot;style-loader&quot;, &quot;css-loader&quot;, &quot;less-loader&quot;]
+      }
+    ]
+  }
+}
+</code></pre>
+<pre><code class="language-javascript">// This import should be converted with a loader
+
+// treat the file as `less`
+import &quot;./index.css.less!=!./index.css&quot;
+</code></pre>
+<p>The slice before the <code>!=!</code> is a way to modify the extension of a single file and force it to match the <code>module.rules</code> and this transformation is often done in a loader, or you will make your application code specialized for Webpack only.</p>
+<p>After going through the basic example, let's see how we're going to optimize out the hack used in <code>vue-loader</code>.</p>
+<pre><code class="language-javascript">// pseudo code only for proofing of the concept
+const compiler = require(&quot;some-vue-template-compiler&quot;)
+
+const loader = function(source) {
+  const {
+    resourceQuery /* ?script=true or something else */, 
+    resourcePath /* path-to-vue-sfc.vue */
+  } = this
+  
+  if (resourceQuery === &quot;?vue=true&amp;script=true&quot;) {
+    return compiler.giveMeCodeofScriptBlock(this.resourcePath) // javascript code
+  } else if (resourceQuery === &quot;?vue=true&amp;template=true&quot;) {
+    return compiler.giveMeCodeofTemplateBlock(this.resourcePath) // javascript code
+  } else if (resourceQuery === &quot;?vue=true&amp;style=true&quot;) {
+    return compiler.giveMeCodeofStyleBlock(this.resourcePath) // style code
+  } else {
+    return `
+    	import `${this.resourcePath}.js!=!${this.resourcePath}?vue=true&amp;script=true`;
+    	import `${this.resourcePath}.js!=!${this.resourcePath}?vue=true&amp;template=true`;
+    	import `${this.resourcePath}.css!=!${this.resourcePath}?vue=true&amp;style=true`;
+    `
+  }
+}
+
+module.exports = loader
+</code></pre>
+<p>Webpack will internally use the match resource part(before <code>!=!</code>) as the data to match loaders. In order to let <code>vue-loader</code> match the resource. We have two options: </p>
+<ol>
+<li>Loose test</li>
+<li><em>Inline loader syntax</em></li>
+</ol>
+<p><strong>1. Loose test</strong></p>
+<pre><code class="language-javascript">module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.vue/, // original: `/\.vue$/`, we removed the `$` to allow resources with `.vue` included to match this rule.
+        use: [&quot;vue-loader&quot;]
+      }
+    ]
+  }
+}
+</code></pre>
+<p>We removed the <code>$</code> to allow resources with <code>.vue</code> included matching this rule. Personally speaking, this is not a good idea, because a loose match might cause mismatches.</p>
+<p><strong>2. Inline loader syntax</strong></p>
+<pre><code class="language-javascript">// vue-loader/index.js
+
+module.exports = function() {
+ // ... code omitted
+	return `
+  	import `${this.resourcePath}.js!=!${__filename}!${this.resourcePath}?vue=true&amp;script=true`;
+  	import `${this.resourcePath}.js!=!${__filename}!${this.resourcePath}?vue=true&amp;template=true`;
+  	import `${this.resourcePath}.css!=!${__filename}!${this.resourcePath}?vue=true&amp;style=true`;
+	`
+}  
+</code></pre>
+<p>This technique is to take advantage of the <em><strong>inline loader syntax</strong></em> to force the loader to go through the vue loader. This tackles down the tangible mismatching ideally and we can still retain the test regex <code>/\.vue$/</code> as-is.</p>
+<h4 id="final-art-and-conclusion"><a class="header" href="#final-art-and-conclusion">Final art and conclusion</a></h4>
+<p><strong>Configuration</strong></p>
+<pre><code class="language-javascript">module.exports = {
+	module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        use: [&quot;vue-loader&quot;]
+      },
+      // ... other rules for js, or css, etc.
+    ]
+  }  
+}
+</code></pre>
+<p><strong>Loader</strong></p>
+<pre><code class="language-javascript">// pseudo code only for proofing of the concept
+const compiler = require(&quot;some-vue-template-compiler&quot;)
+
+const loader = function(source) {
+  const {
+    resourceQuery /* ?script=true or something else */, 
+    resourcePath /* path-to-vue-sfc.vue */
+  } = this
+  
+  if (resourceQuery === &quot;?vue=true&amp;script=true&quot;) {
+    return compiler.giveMeCodeofScriptBlock(resourcePath) // javascript code
+  } else if (resourceQuery === &quot;?vue=true&amp;template=true&quot;) {
+    return compiler.giveMeCodeofTemplateBlock(resourcePath) // javascript code
+  } else if (resourceQuery === &quot;?vue=true&amp;style=true&quot;) {
+    return compiler.giveMeCodeofStyleBlock(resourcePath) // style code
+  } else {
+    return `
+    	import `${this.resourcePath}.js!=!${__filename}!${resourcePath}?vue=true&amp;script=true`;
+    	import `${this.resourcePath}.js!=!${__filename}!${resourcePath}?vue=true&amp;template=true`;
+    	import `${this.resourcePath}.css!=!${__filename}!${resourcePath}?vue=true&amp;style=true`;
+    `
+  }
+}
+
+module.exports = loader
+</code></pre>
+<p><strong>Conclusion</strong></p>
+<p>Vue-loader is quite complex. The basic needs of the loader are:</p>
+<ol>
+<li>Separate a <code>*.vue</code> file request into a number of parts. For each block, explicitly change the resource matching mechanism (using  <em><strong>inline match resource</strong></em>). The killer <em>inline match resource</em> not only gives us great composability with user-defined loaders, but also the ability to interact with webpack supported native types, and we will cover this part late.</li>
+<li>When requesting the <code>vue-loader</code> again for a block, the code of each block is returned and let webpack handle the changed matched resource(e.g. <code>./App.vue.css</code>) with user-defined loaders (Webpack did this internally).</li>
+</ol>
+<h3 id="use-natively-supported-module-types"><a class="header" href="#use-natively-supported-module-types">Use natively supported module types</a></h3>
+<p>We know that webpack only supports <code>JavaScript</code> in the old time, from the version of <code>4.0.0</code>+(<a href="https://github.com/webpack/webpack/releases/tag/v4.0.0">changelog</a>)</p>
+<h4 id="simplified-pre-processors-configuration"><a class="header" href="#simplified-pre-processors-configuration">Simplified pre-processor's configuration</a></h4>
+<blockquote>
+<p>With the experimental support of CSS. A.K.A webpack knows how to handle CSS files natively.</p>
+</blockquote>
+<p><strong>Before</strong></p>
+<pre><code class="language-javascript">module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.less$/,
+        use: [&quot;style-loader&quot;, &quot;css-loader&quot;, &quot;less-loader&quot;],
+        type: &quot;javascript/auto&quot; // this field is a implicit one, if not defined, it will be set to `&quot;javascript/auto&quot;`
+      }
+    ]
+  }
+}
+</code></pre>
+<p><strong>After</strong></p>
+<pre><code class="language-javascript">module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.less$/,
+        use: [&quot;less-loader&quot;],
+        type: &quot;css&quot;
+      }
+    ]
+  },
+  experiments: {
+    css: true
+  }
+}
+</code></pre>
+<p>With <code>experiments.css</code> on, webpack can experimentally understand the parsing and generating of <code>css</code> files which gets rid of <code>css-loader</code> and <code>style-loader</code>. For the full list of natively supported <code>Rule.type</code>, you can find it <a href="https://webpack.js.org/configuration/module/#ruletype">here</a>.</p>
+<h4 id="asset-modules"><a class="header" href="#asset-modules">Asset modules</a></h4>
+<blockquote>
+<p>From <em>webpack 4.0.0+</em>, assets are supported natively</p>
+</blockquote>
+<pre><code class="language-javascript">module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg)/,
+        type: &quot;asset&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<p><code>Rule.type === &quot;asset&quot;</code>  indicates the asset will be automatically tested whether it's going to be inlined or emitted as a file on the real file system. The possible options are: <code>'asset'</code> | <code>'asset/source'</code> | <code>'asset/resource'</code> | <code>'asset/inline'</code></p>
+<h3 id="svgr"><a class="header" href="#svgr">Svgr</a></h3>
+<p>Webpack loader will read the source to a UTF-8 string by default. For SVG files, this would fit the webpack load defaults.</p>
+<pre><code class="language-javascript">// Proof of concept of svgr-loader
+module.exports = function(source) {
+  if (this.resourceQuery === &quot;?svgr=true&quot;) { // the real transform part
+    let { code } = svgrTransformer.transform(source);
+    return code
+  }
+  return `require(&quot;${this.resourcePath}.jsx!=!${__filename}!${this.resourcePath}?svgr=true&quot;)` // the request part
+}
+</code></pre>
+<p>Again here we use double-pass to firstly convert each request to the request part with <em>inline match resource</em>, and do the real request with query <code>?svgr=true</code>, and let <em>inline match resource</em> handle the <code>jsx</code> conversion. Before that, we have to call a third-party <code>jsx</code> transformer, could be <em>ESBuild</em> for example, for which we cannot reuse other <code>module.rules</code> set by the user-side. <em>Inline match resource</em> saved our ass again!</p>
+<h3 id="scheme-imports"><a class="header" href="#scheme-imports">Scheme imports</a></h3>
+<blockquote>
+<p>Supported in <em>Webpack version 5.38.0</em>, doc: <a href="https://webpack.js.org/configuration/module/#rulescheme">Rule.scheme</a></p>
+</blockquote>
+<pre><code class="language-javascript">// JavaScript
+import x from &quot;data:text/javascript,export default 42&quot;
+console.log('x:',x);
+</code></pre>
+<pre><code class="language-css">/* CSS */
+@import (&quot;data:text/css, body { background: #fff; }&quot;);
+</code></pre>
+<p>Webpack handles <code>data:</code> imports for JavaScript internally.</p>
+<h3 id="asset-transform-and-rename"><a class="header" href="#asset-transform-and-rename">Asset transform and rename</a></h3>
+<blockquote>
+<p><a href="https://webpack.js.org/guides/asset-management/"><strong>Asset</strong></a>: This is a general term for the images, fonts, media, and any other kind of files that are typically used in websites and other applications. These typically end up as individual files within the <a href="https://webpack.js.org/glossary/#o">output</a> but can also be inlined via things like the <a href="https://webpack.js.org/loaders/style-loader">style-loader</a> or <a href="https://webpack.js.org/loaders/url-loader">url-loader</a>.</p>
+<p><em>Originally posted at Webpack <a href="https://webpack.js.org/glossary/#a">Glossary</a></em></p>
+</blockquote>
+<h4 id="default-resource-reading-override"><a class="header" href="#default-resource-reading-override">Default resource reading override</a></h4>
+<p>Asset could be formatted in both text(<code>*.svg</code>) or binary (<code>*.png</code> / <code>*.jpg</code>). For loaders, webpack provides you an option <a href="https://webpack.js.org/api/loaders/#raw-loader"><code>raw</code></a> to override the default and built-in resource reading strategy from UTF-8  <code>string</code> to <code>Buffer</code>: </p>
+<pre><code class="language-javascript">module.exports = function(source /* Buffer */ ) {
+  // loader implementation
+}
+
+module.exports.raw = true
+</code></pre>
+<h4 id="transform-and-rename"><a class="header" href="#transform-and-rename">Transform and rename</a></h4>
+<p>Image there is a need to transform an asset formatted with <code>png</code> to <code>jpg</code>. There is two abilities that webpack needs to support:</p>
+<ol>
+<li>Handle the asset with <code>raw</code> content, or a <code>Buffer</code>. We can simply override the default resource reading behavior by exporting <code>raw</code>(covered before).</li>
+<li>Change the filename, and reuse the loader for both <code>png</code> and  <code>jpg</code></li>
+</ol>
+<h5 id="configuration"><a class="header" href="#configuration">Configuration</a></h5>
+<pre><code class="language-javascript">module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.png/,
+        use: [&quot;png-to-jpg-loader&quot;] // some png to jpg loader, we will implement this
+      },
+      {
+        test: /\.jpg/,
+        use: [&quot;jpg-optimizer&quot;] // some jpg optimizer, we will not covert this,
+        type: &quot;asset/resource&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<ol>
+<li>Rule1: For files with extension <code>png</code>, we want to use a <code>png</code> to <code>jpg</code> loader, which will be covered in this article.</li>
+<li>Rule2: 
+<ol>
+<li>For files with extension <code>jpg</code>, we want to use a third-party  <code>jpg-optimizer</code>, which will not be covered in this article.</li>
+<li><code>type: &quot;asset/resource&quot;</code>: As soon as all the loaders have gone through, we want webpack to emit the file as an external resource on the file system regardless of the file size(<code>type: &quot;asset&quot;</code> will automatically detect the size of an asset to determine whether an asset will be inline-included for dynamically imported from file system).</li>
+</ol>
+</li>
+<li>For those <code>jpg</code> files converted from <code>png</code>, we want them to apply with the <code>jpg-optimizer</code> too(i.e. reuse the loaders defined in <code>module.rules</code>)</li>
+</ol>
+<h5 id="loader"><a class="header" href="#loader">Loader</a></h5>
+<pre><code class="language-javascript">module.exports = function(source) {
+  if (this.resourceQuery === &quot;?pngToJPG=true&quot;) {
+    return pngToJpg.transform(source)
+  }
+  
+  return `require(&quot;${this.resourcePath}.jpg!=!${__filename}${this.resourcePath}?pngToJPG=true&quot;)`
+}
+
+module.exports.raw = true
+</code></pre>
+<p>We use double-pass again, firstly we convert the extension to <code>.jpg</code> which will apply the matched rules(in this case <code>test: /\.jpg/</code>), after the transformation of <code>png-to-jpg-loader</code>. Generated asset module filename will be based on the <em>inline match resource</em>, which is <code>xxxx.jpg</code> in this case.</p>
+<h3 id="ast-reuse"><a class="header" href="#ast-reuse">AST reuse</a></h3>
+<p>Webpack provides a way to pass metadata(the forth parameter) among the chaining loaders <a href="https://webpack.js.org/api/loaders/#thiscallback">doc</a>. The most commonly used value is <code>webpackAST</code> which accepts an <code>ESTree</code> compatible(webpack internally uses <code>acorn</code>) AST, which hugely improves the performance since webpack instead of parsing the returned code to AST again, <strong>will directly use the AST(<code>webpackAST</code>) returned from a loader</strong>(But <strong>the work of a complete walking of an AST can not be omitted</strong> as it's necessary for webpack for do some analysis for its dependencies and will be only done once, so it is not a big overhead.)</p>
+<pre><code class="language-javascript">module.exports = function(source) {
+  let ast = AcornParser.parse(source, {
+    // options
+  })
+  
+  this.callback(null, '', null, {
+    webpackAST: ast
+  })
+}
+</code></pre>
+<p>Good to note that only <code>ESTree</code> is compatible, so you cannot pass a CSS AST, or webpack will complain with <code>&quot;webpackAst is unexpected for the CssParser&quot;</code>. It will be ok if you don't get this, let's move to the reference-level explanation for analysis in-depth.</p>
+<h2 id="reference-level-explanation"><a class="header" href="#reference-level-explanation">Reference-level explanation</a></h2>
+<p>This is the reference-level explanation part of webpack's internal loader implementation.</p>
+<h3 id="loader-composability"><a class="header" href="#loader-composability">Loader composability</a></h3>
+<blockquote>
+<p>If you don't quite get this concept, you may refer to the Glossary and <em>Example</em> part of the Guide-level explanation first and pick up this as soon as you finished.</p>
+</blockquote>
+<p>The high-level idea of previously talked <em>inline match resource</em> is to let <strong>loader developers</strong> to customize the behavior of matching to match the pre-defined <code>module.rules</code>. It's an API to write composable loaders. But what does composition mean? For those users who are familiar with React hooks and Vue composable APIs, you may get this faster. Actually, webpack provides a lot of ways to help loader developers and users do the composition.</p>
+<h4 id="user-defined-loader-flows"><a class="header" href="#user-defined-loader-flows">User-defined loader flows</a></h4>
+<pre><code class="language-javascript">module.exports = {
+  module: {
+ 	  rules: [
+      {
+        test: /\.js$/,
+        use: [&quot;babel-loader&quot;],
+        type: &quot;javascript/auto&quot;
+      },
+      {
+        test: /\.svg$/,
+        use: [&quot;svgr-loader&quot;, &quot;svgo-loader&quot;],
+      }
+    ] 
+  }
+}
+</code></pre>
+<p>Webpack users can take the advantage of  <code>module.rules[number].use</code> with a loader list for each request that matches the corresponding conditions. Note that I use the wording of <code>request,</code> not the <code>file</code> , which can include a request to <code>data:text/javascript</code> not the files on the real file system only. (In Parcel bundler, it's called <a href="https://parceljs.org/features/plugins/#pipelines"><em>pipelines</em></a>, but this will not be covered in this article.)</p>
+<p>Apparently, user-declared loader flow is not able to cover up every case that a loader wants. You can see from the previous examples, <code>vue-loader</code> wants to split a file into many blocks, and remain the reference to it.  <code>svgr-loader</code> wants to do the transformation first and let other loaders deal with the <code>jsx</code>. <code>svg-loader</code> wants to use the internal ability of <code>Asset Module</code> to let Webpack decide whether an asset is inlined or emitted to the real file system. and there are more to come... Based on the complexity of the loader, Webpack also provides a syntax to allow loader implementors to do the composition by themselves.</p>
+<h4 id="the-syntax-for-loader-composition"><a class="header" href="#the-syntax-for-loader-composition">The syntax for loader composition</a></h4>
+<h5 id="inline-loader-syntax-chaining-loaders"><a class="header" href="#inline-loader-syntax-chaining-loaders">Inline loader syntax (Chaining loaders)</a></h5>
+<blockquote>
+<p>Supported from <em>webpack v1</em> <a href="https://webpack.js.org/migrate/3/#chaining-loaders">chaining-loaders</a></p>
+<p>It's possible to specify loaders in an <code>import</code> statement, or any <a href="https://webpack.js.org/api/module-methods">equivalent &quot;importing&quot; method</a>. Separate loaders from the resource with <code>!</code>. Each part is resolved relative to the current directory. <a href="https://webpack.js.org/concepts/loaders/#inline">doc</a></p>
+</blockquote>
+<pre><code class="language-javascript">import Styles from '!style-loader!css-loader?modules!./styles.css';
+</code></pre>
+<p>The <em>inline loader syntax</em> executes each loader for each request from right to left. Webpack handles the interaction with user-defined loaders carefully. So by default, the user-defined normal loader will be executed prior to the inline loaders, you can disable this behavior by prefixing <code>!</code> , (full reference could be found here <a href="https://webpack.js.org/concepts/loaders/#inline">doc</a>). </p>
+<p>The custom specifier is parsed before the <code>module.rules</code> as the <em>inline loader syntax</em> interferes the user-defined loaders(See the <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/NormalModuleFactory.js#L390-L403">source code</a>). Then, webpack will get the <code>module.rules</code> combined with the required conditions to calculate the matching rule set (See the <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/NormalModuleFactory.js#L493-L510">source code</a>).</p>
+<p>At the moment, you cannot change the matching behavior with the syntax, loaders are always matched with the provided <em>resourcePath</em>, etc, which leads to a bunch of hack code in the implementations of loaders (see this <a href="https://github.com/vuejs/vue-loader/blob/e9314347d75a1b0e54f971272d23a669fc3e6965/src/select.ts#L31">code snippet</a> in <code>vue-loader</code>). The possibilities for changing the matching behavior leaves to the later-coming <em>inline match resource</em>. </p>
+<p>Nevertheless, the architecture of Loader at this moment is sound and solid. Another good example is the implementation-nonrelative filter(i.e. the filtering logic of <em>Loader</em> is not declared in the loader itself), which is the fundamental root of loader composition, or the implementor will do a lot of hacks. (It's way too dirty to talk about here, but you can take the rollup <a href="https://github.com/gregberge/svgr/blob/1dbc3e2c2027253b3b81b92fd4eb09a4aa8ae25e/packages/rollup/src/index.ts#L52">svgr</a> plugin as a reference)</p>
+<p>In conclusion, <em>inline loader syntax</em> gives us a chance to control the loader flow with user-defined rules.</p>
+<h5 id="inline-match-resource"><a class="header" href="#inline-match-resource">Inline match resource</a></h5>
+<p>To extend the matching ability, <em>inline match resource</em> enables loader implementors to reuse some of the user-defined configurations with more flexibilities. </p>
+<p>On top of the previous example, webpack also provides a way to make use of the natively-supported <em>module types</em>.</p>
+<pre><code class="language-javascript">// For module type `css` to work, you need to enable `experiments.css`
+import &quot;./style.less.webpack[css]!=path-to-less-loader!./style.less&quot;
+</code></pre>
+<pre><code class="language-javascript">// webpack.config.js
+module.exports = {
+  experiments: {
+    css: true
+  }
+}
+</code></pre>
+<p>Given the configuration above, the overview of the complete flow will be like this:</p>
+<ol>
+<li>Webpack: Parse the specifier of the import and create the loader for the current request</li>
+<li>Webpack: Merge the result from the second step with a user-defined <code>module.rules</code> in <code>webpack.config</code>, in this case is <code>[]</code></li>
+<li>Webpack: load <code>style.less</code> as UTF-8 string</li>
+<li>Less-loader: Accept the UTF-8 string as the first parameter of the loader function and transform it to the content of <code>css</code>.</li>
+<li>Webpack: Call the registered native <code>CSS</code> parser, and later at the code generation step the registered native <code>CSS</code> generator generates the result.</li>
+</ol>
+<p>For <em>asset modules</em>, you can also use this:</p>
+<pre><code class="language-javascript">import &quot;./logo.png.jpg.webpack[asset/resource]!=path-to-loaders!./logo.png&quot;
+</code></pre>
+<p>The first part, also known as <code>matchResource</code> will be used as a part of the <code>filename</code> of the final code generation. (See the <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/asset/AssetGenerator.js#L293-L348">source code</a>)</p>
+<h3 id="performance-optimizations"><a class="header" href="#performance-optimizations">Performance optimizations</a></h3>
+<p>Before moving on to the detailed implementations, here's some glossary to support your understanding the architecture as a whole.</p>
+<h4 id="glossary-1"><a class="header" href="#glossary-1">Glossary</a></h4>
+<ul>
+<li><code>NormalModuleFactory</code>: A factory used to create a <code>NormalModule</code>, which basically exposes a <code>create</code> method.</li>
+<li><code>NormalModule</code>: A module in Webpack most of the time is a <code>NormalModule</code>, but with different implementations of <code>parser</code>/ <code>generator</code> / <code>Module Type</code>, the module could be almost any kind, and also exposes a <code>build</code> method. For example, a <code>NormalModule</code> with JavaScript parser, JavaScript generator, and <code>type ===javascript/auto</code> will be regarded as a module with JavaScript-related functionalities. Also, good to note that a module may not exist on the real file system, taking <code>data:</code> for example.</li>
+</ul>
+<h4 id="the-module-creation-workflow"><a class="header" href="#the-module-creation-workflow">The module creation workflow</a></h4>
+<blockquote>
+<p>This will only introduce a slice of webpack's internal implementation from <strong>the Loader's perspective</strong>, for more you should directly refer to the source code.</p>
+</blockquote>
+<p>When an import statement is detected, webpack will initialize a module creation. Based on the type of <em>Dependency</em> (an abstraction of webpack, it's not important here), webpack can find the linked <em>ModuleFactory</em>(The abstraction class), in most cases, the derived factory is <code>NormalModuleFactory</code>, which exposes a <code>create</code> method.</p>
+<h5 id="prepare-data-needed-for-module-creation"><a class="header" href="#prepare-data-needed-for-module-creation">Prepare data needed for module creation</a></h5>
+<p>The <code>NormalModuleFactory#create</code> is used to provide enough information to create a real <code>NormalModule</code>, and create the <code>NormalModule</code>. In the <code>create</code> method, webpack basically does these things(some non-loader related stuff will be omitted):</p>
+<ul>
+<li>Resolve loaders from request: resolve the request, parse inline loader syntax: This contains <em>inline match resource</em>, <em>inline loader syntax</em>.</li>
+<li>Do the analysis on the parsed loader syntax, to decide whether a user-defined <code>normal/post/pre</code> loader is going to be included. <a href="https://webpack.js.org/concepts/loaders/#inline">doc</a></li>
+<li>Resolve Resource: resolve resource to the absolute path, fragments, queries, etc(These stuff are also provided in <code>LoaderContext</code>). For the full source code you may refer to <a href="https://github.com/webpack/webpack/blob/main/lib/NormalModuleFactory.js#L653-L678">this</a></li>
+<li>Use the resolved resource data to match <code>module.rules</code> defined in the configuration, and get the matched rules. This is also a part of the module creation data.</li>
+<li>Do some special logic with <em>inline match resource</em>, since match resource ends like <code>.webpack[css]</code> would change  <code>Rule.type</code>. Also store the match resource data, since it might affect the filename generation for  <em>asset modules</em>.</li>
+</ul>
+<h5 id="create-a-module-based-on-the-prepared-data"><a class="header" href="#create-a-module-based-on-the-prepared-data">Create a module based on the prepared data</a></h5>
+<p>After the data needed for module creation is prepared, <code>NormalModuleFactory</code>  will <code>new NormalModule</code> with the data provided. It contains basically every that a <code>NormalModule</code> needs (see the <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/NormalModule.js#L271-L287">source code</a>). Most importantly, the <code>loaders</code>. It contains every loader parsed and ordered from the <code>create</code> step.</p>
+<h4 id="the-module-build-step"><a class="header" href="#the-module-build-step">The module build step</a></h4>
+<p>The module build step is kind of clear. Webpack will invoke the <code>build</code> method for each <code>NormalModule</code> instance, which invokes <code>loader-runner</code>(see the <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/NormalModule.js#L819">source code</a>) to go through every loader that was analyzed from the create step. It's clear to <strong>know that the composition of loaders is happening on the same module</strong>.</p>
+<h4 id="a-peek-of-the-support-of-module-types"><a class="header" href="#a-peek-of-the-support-of-module-types">A peek of the support of <em>Module Types</em></a></h4>
+<p>As far as this article goes, It might be getting a little bit tedious. But have you ever wondered how webpack supports these <em>module types</em> natively? I think It's still worth telling you about it to get a more complete understanding of the AST optimizations. For the support of JavaScript, webpack's JavaScript plugin will register different types of parser and generators for each <em>module types</em>, which will be used as the <code>parser</code> / <code>generator</code> to a <code>NormalModule</code> (see the <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/javascript/JavascriptModulesPlugin.js#L202-L231">source code</a>).</p>
+<h4 id="reusing-ast-in-webpack"><a class="header" href="#reusing-ast-in-webpack">Reusing AST in Webpack</a></h4>
+<p>Based on the parser and generator we introduced before, webpack did a little hack around the fourth parameter of <code>this.callback</code> (from <em>loaderContext</em>), with <code>webpackAST</code>, after each loader call, the <code>webpackAST</code> will be stored in the context of loader, and passed again to the next loader. Finally, the AST will be passed to the <code>parser</code>(It could be any type, based on the <em>module type</em>, but webpack makes it a JavaScript only for AST) (see the <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/NormalModule.js#L1087">source code</a>).</p>
+<p>Here's an issue about trying to use SWC's AST to get rid of the time sensitive code parsing from Acorn Parser, but they are facing some AST compatibility issues and performance issues about the overhead of interop with native code(Rust).</p>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<ul>
+<li>
+<p>loader plugin api design (Analysis) <a href="https://github.com/speedy-js/rspack/discussions/315">#315</a></p>
+</li>
+<li>
+<p>RFC-011 Supports <code>data:text/javascript</code> protocol <a href="https://github.com/speedy-js/rspack/discussions/457">#457</a></p>
+</li>
+<li>
+<p>Webpack: <code>matchResource</code> with natively-supported module types <a href="https://webpack.js.org/api/loaders/#thisimportmodule">doc</a></p>
+</li>
+<li>
+<p>Webpack: Loader context <a href="https://webpack.js.org/api/loaders/#the-loader-context">doc</a></p>
+</li>
+<li>
+<p>Webpack: Module rules <a href="https://webpack.js.org/configuration/module/#rule">doc</a></p>
+</li>
+<li>
+<p>SWC-loader for performance optimizations <a href="https://github.com/webpack/webpack/issues/13425#issuecomment-1013560170">issue</a> </p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../architecture/webpack/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../architecture/webpack/dependency.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../architecture/webpack/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../architecture/webpack/dependency.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

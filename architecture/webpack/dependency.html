@@ -1,0 +1,623 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>dependency - Rspack Development Guide</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../../getting-started.html">Getting started</a></li><li class="chapter-item affix "><a href="../../about-this-guide.html">About this guide</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item "><a href="../../building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="../../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../testing/e2e.html"><strong aria-hidden="true">2.1.</strong> E2E</a></li></ol></li><li class="chapter-item "><a href="../../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item "><a href="../../profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item "><a href="../../releasing/intro.html"><strong aria-hidden="true">5.</strong> Releasing</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../../contributing/intro.html"><strong aria-hidden="true">6.</strong> Contribution procedures</a></li><li class="chapter-item "><a href="../../contributing/repro.html"><strong aria-hidden="true">7.</strong> Minimal reproducible example</a></li><li class="chapter-item "><a href="../../contributing/team.html"><strong aria-hidden="true">8.</strong> About the team</a></li><li class="chapter-item "><a href="../../contributing/managing-labels.html"><strong aria-hidden="true">9.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item "><a href="../../architecture/rspack/intro.html"><strong aria-hidden="true">10.</strong> rspack</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../architecture/rspack/loader.html"><strong aria-hidden="true">10.1.</strong> loader</a></li></ol></li><li class="chapter-item expanded "><a href="../../architecture/webpack/intro.html"><strong aria-hidden="true">11.</strong> webpack</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../architecture/webpack/loader.html"><strong aria-hidden="true">11.1.</strong> loader</a></li><li class="chapter-item expanded "><a href="../../architecture/webpack/dependency.html" class="active"><strong aria-hidden="true">11.2.</strong> dependency</a></li><li class="spacer"></li></ol></li><li class="chapter-item "><li class="part-title">Workflows</li><li class="chapter-item "><a href="../../workflows/meetings.html"><strong aria-hidden="true">12.</strong> Meetings</a></li><li class="chapter-item "><a href="../../workflows/releases.html"><strong aria-hidden="true">13.</strong> Releases</a></li><li class="chapter-item "><a href="../../workflows/misc.html"><strong aria-hidden="true">14.</strong> Misc</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rspack Development Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <blockquote>
+<p>Based on <em>Webpack version: 5.73.0</em>.
+Some source code is omitted for cleaner demonstration in the example.</p>
+</blockquote>
+<h1 id="summary"><a class="header" href="#summary">Summary</a></h1>
+<p>Explain how webpack dependency affects the compilation and what kind of problem that webpack was facing at the moment and the solution to the problem.</p>
+<h1 id="glossary"><a class="header" href="#glossary">Glossary</a></h1>
+<blockquote>
+<p>What's the meaning of a word used to describe a feature?</p>
+<p>Why does the Webpack introduce this and what's the background of introducing this? What kind of problem Webpack was facing at the time?</p>
+</blockquote>
+<h2 id="high-level-presentations-of-dependencies"><a class="header" href="#high-level-presentations-of-dependencies">High-level presentations of <em>Dependencies</em></a></h2>
+<ul>
+<li><a href="https://webpack.js.org/api/loaders/#thisadddependency">Dependency(fileDependency)</a>: An existing dependency that is marked as watchable. This is the widely-used type of dependency. CSS Preprocessors like <code>postcss</code> strongly depend on this in order to mark its dependency watchable.</li>
+<li><a href="https://webpack.js.org/api/loaders/#thisaddcontextdependency">ContextDependency</a>: Most useful for requests in which Glob and Regexp were used. For real-world usage, see [<a href="https://webpack.js.org/guides/dependency-management/#require-with-expression">this</a>](https://webpack.js.org/guides/dependency-management/#require-with-expression).</li>
+<li><a href="https://webpack.js.org/api/loaders/#thisaddmissingdependency">MissingDependency</a>: A missing dependency to mark it watchable (handles the creation of files during compilation before watchers are attached correctly.)</li>
+<li><a href="https://webpack.js.org/configuration/cache/#cachebuilddependencies">BuildDependency</a>: Related to persistent cache.</li>
+<li>PresentationalDependency: Dependencies that only affect presentation are mostly used with their associated template.</li>
+</ul>
+<h2 id="others"><a class="header" href="#others">Others</a></h2>
+<ul>
+<li><a href="https://webpack.js.org/api/loaders/#the-loader-context">LoaderContext</a>: Context provided by Webpack <em>loader-runner</em>, which can be accessed through <code>this</code> in each loader function.</li>
+<li>ModuleGraph: A graph to describe the relationship between modules.</li>
+</ul>
+<h1 id="guide-level-explanation"><a class="header" href="#guide-level-explanation">Guide-level explanation</a></h1>
+<h2 id="dependency"><a class="header" href="#dependency"><code>Dependency</code></a></h2>
+<p><code>dependency</code>(<code>fileDependency</code>) stands for the file <em>dependency</em> among <code>missingDependency</code> and <code>contextDependency</code>, etc. The created dependency will be marked as watchable, which is useful in <em>Hot Module Replacement</em> in developer mode.</p>
+<p>The implicit behavior for webpack internally in the case below is to create two dependencies internally.</p>
+<pre><code class="language-js">import foo from &quot;./foo&quot;;
+import &quot;./style.css&quot;;
+</code></pre>
+<h2 id="contextdependency"><a class="header" href="#contextdependency"><code>ContextDependency</code></a></h2>
+<p><code>contextDependency</code> is mostly used in scenarios where we want to dynamic load some module in runtime. In this case, webpack cannot assure which module it will be included in the final bundle at compile time. In order to make the code runnable in runtime, webpack has to firstly create multiple bundle modules corresponding to the matching filename such as <code>./components/a.js</code> and <code>./components/b.js</code>, etc.</p>
+<pre><code class="language-js">// index.js
+import(&quot;./components&quot; + componentName).then(...)
+</code></pre>
+<pre><code class="language-js">// components/a.js
+...
+export default ComponentA;
+</code></pre>
+<pre><code class="language-js">// components/b.js
+...
+export default ComponentB;
+</code></pre>
+<p>For loaders, you can access to <code>this.addContextDependency</code> in each loader function.
+For plugins, you can access via <code>module.buildInfo.contextDependencies</code>.</p>
+<h1 id="reference-level-explanation"><a class="header" href="#reference-level-explanation">Reference-level explanation</a></h1>
+<blockquote>
+<p>The abstraction of <em>Dependency</em> of Webpack was introduced in Webpack version 0.9 with a big refactor. <a href="https://github.com/webpack/webpack/commit/ee01837d66a44f1dd52fd1e174a6669e0d18dd55">Redirect to the commit</a></p>
+</blockquote>
+<h2 id="stakeholders-of-dependency"><a class="header" href="#stakeholders-of-dependency">Stakeholders of <em>Dependency</em></a></h2>
+<h3 id="high-level"><a class="header" href="#high-level">High-level</a></h3>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220919_1663578968.png" alt="image-20220919171608629" /></p>
+<h3 id="low-level"><a class="header" href="#low-level">Low-level</a></h3>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220919_1663579121.png" alt="image-20220919171841624" /></p>
+<h2 id="how-dependencies-affect-the-creation-of-module-graph"><a class="header" href="#how-dependencies-affect-the-creation-of-module-graph">How <em>dependencies</em> affect the creation of <em>module graph</em>?</a></h2>
+<h3 id="duplicated-module-detection"><a class="header" href="#duplicated-module-detection">Duplicated module detection</a></h3>
+<p>Each module will have its own <code>identifier</code>, for <code>NormalModule</code>, you can find this in <code>NormalModule#identifier</code>. If the identifier will be duplicated if inserted in <code>this._module</code>, then webpack will directly skip the remaining build process. <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/Compilation.js#L1270-L1274">[source]</a></p>
+<p>Basically, an <code>NormalModule</code> identifier contains these parts:</p>
+<ol>
+<li><code>type</code> [<code>string</code>]: The module type of a module. If the type of the module is <code>javascript/auto</code>, this field can be omitted</li>
+<li><code>request</code> [<code>string</code>]: Request to the module. All loaders whether it's inline or matched by a config will be stringified. If <em>inline match resource</em> exists, inline loaders will be executed before any normal-loaders after pre-loaders. A module with a different loader passed through will be treated as a different module regardless of its path. </li>
+<li><code>layer</code>: applied if provided</li>
+</ol>
+<h3 id="module-resolution"><a class="header" href="#module-resolution">Module resolution</a></h3>
+<p><code>getResolve</code> is a loader API on the <code>LoaderContext</code>. Loader developers can pass <code>dependencyType</code> to its <code>option</code> which indicates the category of the module dependency that will be created. Values like <code>esm</code> can be passed, then webpack will use type <code>esm</code> to resolve the dependency. </p>
+<p>The resolved dependencies are automatically added to the current module. This is driven by the internal plugin system of <code>enhanced-resolve</code>. Internally, <code>enhanced-resolve</code> uses plugins to handle the dependency registration like <code>FileExistsPlugin</code> <a href="https://github.com/webpack/enhanced-resolve/blob/e5ff68aef5ab43b8197e864181eda3912957c526/lib/FileExistsPlugin.js#L34-L54">[source]</a> to detect whether a file is located on the file system or will add this file to a list of <code>missingDependency</code> and report in respect of the running mode of webpack. The collecting end of Webpack is generated by the <code>getResolveContext</code> in <code>NormalModule</code> <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/NormalModule.js#L513-L524">[source]</a></p>
+<h3 id="module-dependency-in-modulegraph"><a class="header" href="#module-dependency-in-modulegraph"><em>Module dependency</em> in <em>ModuleGraph</em></a></h3>
+<p>Here's a module graph with <code>esm</code> import between modules:</p>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220919_1663579279.png" alt="image-20220919172119861" /></p>
+<p>The dependency type introduced by <code>import</code> or <code>require</code> is a derived dependency: <em>ModuleDependency</em>.</p>
+<p>A <em>ModuleDependency</em> contains three important fields.</p>
+<ol>
+<li><code>category</code>: used to describe the category of dependency. e.g. &quot;esm&quot; | &quot;commonjs&quot;</li>
+<li><code>request</code>: see the explanation above.</li>
+<li><code>userRequest</code>: Resource and its inline loader syntax will be stringified and applied, but loaders in <code>module.rules</code> will be omitted.</li>
+</ol>
+<p>It's also good to note a field we will talk about later:</p>
+<ol>
+<li><code>assertions</code>: assertions in <code>import xx from &quot;foo.json&quot; assert { type: &quot;json&quot; }</code></li>
+</ol>
+<p>More fields can be found in abstract class of <em>Dependency</em> and <em>ModuleDependency</em>. <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/Dependency.js#L88">source: Dependency</a> <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/dependencies/ModuleDependency.js#L17">source: ModuleDependency</a></p>
+<pre><code class="language-js">// null -&gt; index.js
+
+EntryDependency {
+  category: &quot;esm&quot;,
+  request: &quot;./index.js&quot;,
+  type: &quot;entry&quot;,
+  _parentModule: undefined
+}
+</code></pre>
+<pre><code class="language-js">// index.js -&gt; foo.js
+
+HarmonyImportSideEffectDependency {
+  category: &quot;esm&quot;,
+  request: &quot;./foo&quot;,
+  type: &quot;harmony side effect evaluation&quot;,
+  _parentModule: NormalModule { identifier: &quot;index.js&quot; }
+}
+</code></pre>
+<pre><code class="language-js">// index.js -&gt; bar.js
+
+HarmonyImportSideEffectDependency {
+  category: &quot;esm&quot;,
+  request: &quot;./bar&quot;,
+  type: &quot;harmony side effect evaluation&quot;,
+  _parentModule: NormalModule { identifier: &quot;index.js&quot; }
+}
+</code></pre>
+<pre><code class="language-js">// bar.js -&gt; foo.js
+HarmonyImportSideEffectDependency {
+  category: &quot;esm&quot;,
+  request: &quot;./foo&quot;,
+  type: &quot;harmony side effect evaluation&quot;,
+  _parentModule: NormalModule { identifier: &quot;bar.js&quot; }
+}
+</code></pre>
+<h3 id="resolving-a-module"><a class="header" href="#resolving-a-module">Resolving a module</a></h3>
+<p><em>ModuleDependencies</em> with different dependency category such as <code>esm</code> or <code>commonjs</code> will affect the resolving part. For ECMAScript modules, they may prefer <code>&quot;module&quot;</code> to <code>&quot;main&quot;</code>, and for <em>CommonJS</em> modules, they may use <code>&quot;main&quot;</code> in <code>package.json</code>. On top of that, conditional exports are also necessary to be taken into account. <a href="https://nodejs.org/api/packages.html#conditional-exports">doc</a></p>
+<h3 id="different-types-of-module-dependencies"><a class="header" href="#different-types-of-module-dependencies">Different types of <em>module dependencies</em></a></h3>
+<h4 id="esm-related-derived-types"><a class="header" href="#esm-related-derived-types">ESM-related derived types</a></h4>
+<p>There are a few of <em>ModuleDependencies</em> introduced in ESM imports. A full list of each derived type can be reached at <a href="https://github.com/webpack/webpack/blob/86a8bd9618c4677e94612ff7cbdf69affeba1268/lib/dependencies/HarmonyImportDependencyParserPlugin.js">[source]</a></p>
+<h5 id="import"><a class="header" href="#import">Import</a></h5>
+<p><strong><code>HarmonyImportDependency</code></strong></p>
+<p>The basic type of harmony-related <em>module dependencies</em> are below. <a href="https://github.com/webpack/webpack/blob/86a8bd9618c4677e94612ff7cbdf69affeba1268/lib/dependencies/HarmonyImportDependency.js#L51">[source]</a></p>
+<p><strong><code>HarmonyImportSideEffectDependency</code></strong></p>
+<pre><code class="language-js">import { foo, bar } from &quot;./module&quot;
+import * as module from &quot;./module&quot;
+import foo from &quot;./module&quot;
+import &quot;./module&quot;
+</code></pre>
+<p>Every import statement will come with a <code>HarmonyImportSideEffectDependency</code>, no matter how the specifiers look like. The speicifier will be handled by <code>HarmonyImportSpecifierDendency</code> below.</p>
+<p>The field <code>assertions</code> will be stored if any import assertions exist for later consumption.
+The field <code>category</code> will be used as <code>dependencyType</code> to resolve modules.</p>
+<p><strong><code>HarmonyImportSpecifierDependency</code></strong></p>
+<pre><code class="language-js">import { foo, bar } from &quot;./module&quot;
+import * as module from &quot;./module&quot;
+import foo from &quot;./module&quot;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-js">import { foo, bar } from &quot;./module&quot;
+
+console.log(foo, bar)
+</code></pre>
+<p>Specifier will be mapped into a specifier dependency if and only if it is used. JavaScript parser will first tag each variable <a href="https://github.com/webpack/webpack/blob/86a8bd9618c4677e94612ff7cbdf69affeba1268/lib/dependencies/HarmonyImportDependencyParserPlugin.js#L137">[source]</a>, and then create corresponding dependencies on each reading of dependency. <a href="https://github.com/webpack/webpack/blob/86a8bd9618c4677e94612ff7cbdf69affeba1268/lib/dependencies/HarmonyImportDependencyParserPlugin.js#L189">[source]</a> and finally be replaced to the generated <code>importVar</code>.</p>
+<h5 id="exportthey-are-not-module-dependencies-to-be-actual-but-i-placed-here-for-convenience"><a class="header" href="#exportthey-are-not-module-dependencies-to-be-actual-but-i-placed-here-for-convenience">Export(They are not module dependencies to be actual, but I placed here for convenience)</a></h5>
+<p><strong><code>HarmonyExportHeaderDependency</code></strong></p>
+<blockquote>
+<p>PresentationalDependency</p>
+</blockquote>
+<pre><code class="language-js">export const foo = &quot;foo&quot;;
+export default &quot;foo&quot;;
+</code></pre>
+<p>This is a <em>presentational dependency</em>. We will take more time on this later.</p>
+<p><strong><code>HarmonyExportSpecifierDependency</code></strong></p>
+<pre><code class="language-js">export const foo = &quot;foo&quot;; // `foo` is a specifier
+
+HarmonyExportSpecifierDependency {
+  id: string;
+  name: string;
+}
+</code></pre>
+<p><strong><code>HarmonyExportExpressionDependency</code></strong></p>
+<pre><code class="language-js">export default &quot;foo&quot;; // &quot;foo&quot; is an expression
+
+HarmonyExportExpressionDependency {
+ range: [number, number] // range of the expression
+ rangeStatement: [number, number] // range of the whole statement
+}
+</code></pre>
+<h2 id="how-dependencies-affect-code-generation"><a class="header" href="#how-dependencies-affect-code-generation">How <em>dependencies</em> affect code generation</a></h2>
+<h3 id="presentational-dependency"><a class="header" href="#presentational-dependency"><em>Presentational dependency</em></a></h3>
+<blockquote>
+<p>A type of dependency that only affects code presentation.</p>
+</blockquote>
+<p><strong><code>ConstDependency</code></strong></p>
+<pre><code>ConstDependency {
+  expression: string
+  range: [number, number]
+  runtimeRequirements: Set&lt;string&gt; | null
+}
+</code></pre>
+<p>You can think of the passed <code>expression</code> as a <code>replacement</code> for the corresponding <code>range</code>. For the real world example, you can directly refer to <em>Constant Folding</em>.</p>
+<h3 id="template"><a class="header" href="#template"><em>Template</em></a></h3>
+<p>Remember the fact that Webpack is an architecture wrapped around source code modifications. <em>Template</em> is the solution that helps Webpack to do the real patch on the source code. Each dependency has its associated <em>template</em> which affects a part of the code generation scoped per dependency. In other words, the effect of each <em>template</em> is strictly scoped to its associated dependency. </p>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220919_1663579980.png" alt="image-20220919173300220" /></p>
+<p>There are three types of modification: </p>
+<ul>
+<li><code>source</code></li>
+<li><code>fragments</code></li>
+<li><code>runtimeRequirements</code></li>
+</ul>
+<p>A boilerplate of the dependency template looks like this: </p>
+<pre><code class="language-js">class SomeDependency {}
+
+SomeDependency.Template = class SomeDependencyTemplate {
+   /**
+	 * @param {Dependency} dependency the dependency for which the template should be applied
+	 * @param {ReplaceSource} source the current replace source which can be modified
+	 * @param {DependencyTemplateContext} templateContext the context object
+	 * @returns {void}
+	 */
+   apply(dependency, source, templateContext) {
+      // do code mod here
+   }
+}
+</code></pre>
+<p>There are three parameters in the function signature: </p>
+<ul>
+<li>dependency: The associated dependency of this template</li>
+<li>source: The source code represent in <code>ReplaceSource</code>, which can be used to replace a snippet of code with a new one, given the start and end position</li>
+<li>templateContext: A context of template, which stores the corresponding <code>module</code>, <code>InitFragments</code>, <code>moduleGraph</code>, <code>runtimeRequirements</code>, etc. (not important in this section)</li>
+</ul>
+<h4 id="source"><a class="header" href="#source"><code>Source</code></a></h4>
+<p>Again, given an example of <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/dependencies/ConstDependency.js#L20"><code>ConstDependency</code></a>, even if you don't have an idea what it is, it doesn't matter. We will cover this in the later sections.</p>
+<p>The associated template modifies the code with <code>Source</code>(<code>ReplaceSource</code> to be more specific):</p>
+<pre><code class="language-js">ConstDependency.Template = class ConstDependencyTemplate extends (
+	NullDependency.Template
+) {
+	apply(dependency, source, templateContext) {
+		const dep = /** @type {ConstDependency} */ (dependency);
+        
+        // not necessary code is removed for clearer demonstration 
+
+        if (dep.runtimeRequirements) {
+			for (const req of dep.runtimeRequirements) {
+				templateContext.runtimeRequirements.add(req);
+			}
+		}
+
+		source.replace(dep.range[0], dep.range[1] - 1, dep.expression);
+	}
+};
+</code></pre>
+<h4 id="runtimerequirements"><a class="header" href="#runtimerequirements"><code>runtimeRequirements</code></a></h4>
+<p>As you can see from the <code>Source</code> section above, there is another modification we talked about: <code>runtimeRequirements</code>, It adds
+runtime requirements for the current <code>compilation</code>. We will explain more in the later sections.</p>
+<h4 id="fragments"><a class="header" href="#fragments"><code>Fragments</code></a></h4>
+<p>Essentially, a <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/InitFragment.js"><em>fragment</em></a> is a pair of code snippet that to be wrapped around each <em>module</em> source. Note the wording &quot;wrap&quot;, it could contain two parts <code>content</code> and <code>endContent</code> <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/InitFragment.js#L69">[source]</a>. To make it more illustrative, see this:</p>
+<img width="390" alt="image" src="https://user-images.githubusercontent.com/10465670/190576169-43ac19c4-2783-46c3-9059-b64b1ff72c4e.png">
+<p>The order of the fragment comes from two parts:</p>
+<ol>
+<li>The stage of a fragment: if the stage of two fragments is different, then it will be replaced corresponding to the order define by the stage</li>
+<li>If two fragments share the same order, then it will be replaced in <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/InitFragment.js#L41">position</a> order.
+<a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/InitFragment.js#L153-L159">[source]</a></li>
+</ol>
+<p><strong>A real-world example</strong></p>
+<pre><code class="language-js">import { foo } from &quot;./foo&quot;
+
+foo()
+</code></pre>
+<p>Given the example above, here's the code to generate a dependency that replaces <code>import</code> statement with <code>__webpack_require__</code>.</p>
+<pre><code class="language-js">// some code is omitted for cleaner demonstration
+parser.hooks.import.tap(
+        &quot;HarmonyImportDependencyParserPlugin&quot;,
+              (statement, source) =&gt; {
+	              const clearDep = new ConstDependency(
+		              &quot;&quot;,
+		              statement.range
+	              );
+	              clearDep.loc = statement.loc;
+	              parser.state.module.addPresentationalDependency(clearDep);
+
+	              const sideEffectDep = new HarmonyImportSideEffectDependency(
+		              source
+	              );
+	              sideEffectDep.loc = statement.loc;
+	              parser.state.module.addDependency(sideEffectDep);
+
+	              return true;
+              }
+);
+</code></pre>
+<p>Webpack will create two dependencies <code>ConstDependency</code> and <code>HarmonyImportSideEffectDependency</code> while parsing <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/dependencies/HarmonyImportDependencyParserPlugin.js#L110-L132">[source]</a>.</p>
+<p>Let me focus on <code>HarmonyImportSideEffectDependency</code> more, since it uses <code>Fragment</code> to do some patch. </p>
+<pre><code class="language-js">// some code is omitted for cleaner demonstration
+HarmonyImportSideEffectDependency.Template = class HarmonyImportSideEffectDependencyTemplate extends (
+	HarmonyImportDependency.Template
+) {
+	apply(dependency, source, templateContext) {
+		super.apply(dependency, source, templateContext);
+	}
+};
+</code></pre>
+<p>As you can see in its associated <em>template</em> <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/dependencies/HarmonyImportSideEffectDependency.js#L59">[source]</a>, the modification to the code is made via its superclass <code>HarmonyImportDependency.Template</code> <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/dependencies/HarmonyImportDependency.js#L244">[source]</a>.</p>
+<pre><code class="language-js">// some code is omitted for cleaner demonstration
+HarmonyImportDependency.Template = class HarmonyImportDependencyTemplate extends (
+	ModuleDependency.Template
+) {
+	apply(dependency, source, templateContext) {
+		const dep = /** @type {HarmonyImportDependency} */ (dependency);
+		const { module, chunkGraph, moduleGraph, runtime } = templateContext;
+
+		const referencedModule = connection &amp;&amp; connection.module;
+
+		const moduleKey = referencedModule
+			? referencedModule.identifier()
+			: dep.request;
+		const key = `harmony import ${moduleKey}`;
+                
+                 // 1
+		const importStatement = dep.getImportStatement(false, templateContext);
+                 // 2
+		templateContext.initFragments.push(
+			new ConditionalInitFragment(
+				importStatement[0] + importStatement[1],
+				InitFragment.STAGE_HARMONY_IMPORTS,
+				dep.sourceOrder,
+				key,
+				// omitted for cleaner code
+			)
+		);
+	}
+}
+</code></pre>
+<p>As you can see from the simplified source code above, the actual patch made to the generated code is via <code>templateContext.initFragments</code>(2). The import statement generated from dependency looks like this.</p>
+<pre><code class="language-js">/* harmony import */  var _foo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./foo */ &quot;./src/foo.js&quot;); //(1)
+</code></pre>
+<p>Note, the real require statement is generated via <em>initFragments</em>, <code>ConditionalInitFragment</code> to be specific. Don't be afraid of the naming, for more information you can see the (background)[https://github.com/webpack/webpack/pull/11802] of this <em>fragment</em>, which let's webpack to change it from <code>InitFragment</code> to <code>ConditionalInitFragment</code>.</p>
+<p><strong>How does webpack solve the compatibility issue?</strong></p>
+<p>For ESM modules, webpack will additionally call a helper to define <code>_esModule</code> on exports as an hint:</p>
+<pre><code class="language-js">__webpack_require__.r(__webpack_exports__);
+</code></pre>
+<p>The call of a helper is always placed ahead of any <code>require</code> statements. Probably you have already get this as the stage of <code>STAGE_HARMONY_EXPORTS</code> has high priority than <code>STAGE_HARMONY_IMPORTS</code>. Again, this is achieved via <code>initFragments</code>. The logic of the compatibility helper is defined in <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/dependencies/HarmonyCompatibilityDependency.js">this</a> file, you can check it out.</p>
+<h3 id="runtime"><a class="header" href="#runtime">Runtime</a></h3>
+<p>Runtime generation is based on the previously collected <code>runtimeRequirements</code> in different dependency templates and is done after the code generation of each module. Note: it's not after the <code>renderManifest</code>, but it's after the code generation of each module. </p>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220919_1663580309.png" alt="image-20220919173829765" />In the first iteration of collection, Sets of <code>runtimeRequirements</code> are collected from the module's code generation results and added to each <code>ChunkGraphModule</code>.</p>
+<p>In the second iteration of collection, the collected <code>runtimeRequirements</code> are already stored in <code>ChunkGraphModule</code>, so Webpack again collects them from there and stores the runtimes required by each chunk of <code>ChunkGraphChunk</code>. It's kind of the hoisting procedure of the required runtimes.</p>
+<p>Finally, also known as the third iteration of collection, Webpack hoists <code>runtimeRequirements</code> from those chunks that are referenced by the entry chunk and get it hoisted on the <code>ChunkGraphChunk</code> using a different field named <code>runtimeRequirementsInTree</code> which indicates not only does it contains the runtime requirements by the chunk but also it's children runtime requirements.</p>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220919_1663580492.png" alt="image-20220919174132772" /></p>
+<p>The referenced source code you can be found it <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/Compilation.js#L3379">here</a> and these steps are basically done in <code>processRuntimeRequirements</code>. This let me recall the linking procedure of a rollup-like bundler. Anyway, after this procedure, we can finally generate <em>runtime modules</em>. Actually, I lied here, huge thanks to the hook system of Webpack, the creation of <em>runtime modules</em> is done in this method via calls to <code>runtimeRequirementInTree</code><a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/Compilation.js#L3498">[source]</a>. No doubt, this is all done in the <code>seal</code> step. After that, webpack will process each chunk and create a few code generation jobs, and finally, emit assets.</p>
+<h3 id="hot-module-replacement"><a class="header" href="#hot-module-replacement"><em>Hot module replacement</em></a></h3>
+<p>Changes made via <em>hot module replacement</em> is mostly come from <code>HotModuleReplacementPlugin</code>.</p>
+<p>Given the code below:</p>
+<pre><code class="language-js">if (module.hot) {
+  module.hot.accept(...)
+}
+</code></pre>
+<p>Webpack will replace expressions like <code>module.hot</code> and <code>module.hot.accept</code>, etc with <code>ConstDependency</code> as the <em>presentationalDependency</em> as I previously talked about. <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/HotModuleReplacementPlugin.js#L97-L101">[source]</a></p>
+<p>With the help of a simple expression replacement is not enough, the plugin also introduce additional runtime modules for each entries. <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/HotModuleReplacementPlugin.js#L736-L748">[source]</a></p>
+<p>The plugin is quite complicated, and you should definitely checkout what it actually does, but for things related to dependency, it's enough.</p>
+<h2 id="how-dependencies-affect-production-optimizations"><a class="header" href="#how-dependencies-affect-production-optimizations">How <em>dependencies</em> affect production optimizations</a></h2>
+<h3 id="constant-folding"><a class="header" href="#constant-folding">Constant folding</a></h3>
+<blockquote>
+<p>The logic is defined in ConstPlugin : <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/ConstPlugin.js#L135">[source]</a></p>
+</blockquote>
+<p><em>Constant folding</em> is a technique that used as an optimization for optimization. For example:</p>
+<p><strong>Source</strong></p>
+<pre><code class="language-js">if (process.env.NODE_ENV === &quot;development&quot;) {
+   ...
+} else {
+   ...
+}
+</code></pre>
+<p><strong>Generated</strong></p>
+<pre><code class="language-js">if (true) {
+  ...
+}
+</code></pre>
+<p>With mode set to <code>&quot;development&quot;</code>, webpack will &quot;fold&quot; the expression <code>process.env.NODE_ENV === &quot;development&quot;</code> into an expression of <code>&quot;true&quot;</code> as you can see for the code generation result. </p>
+<p>In the <code>make</code> procedure of webpack, Webpack internally uses an <code>JavaScriptParser</code> for JavaScript parsing. If an <code>ifStatement</code> is encountered, Webpack creates a corresponding <code>ConstDependency</code>. Essentially, for the <code>ifStatement</code>, the <code>ConstDependency</code> looks like this :</p>
+<pre><code class="language-js">ConstDependency {
+  expression: &quot;true&quot;,
+  range: [start, end] // range to replace
+}
+</code></pre>
+<p>It's almost the same with <code>else</code> branch, if there is no <em>side effects</em>(refer to source code for more detail), Webpack will create another <code>ConstDependency</code> with <code>expression</code> set to <code>&quot;&quot;</code>, which in the end removes the <code>else</code> branch.</p>
+<p>In the <code>seal</code> procedure of Webpack, the record of the dependency will be applied to the original source code and generate the final result as you may have already seen above.</p>
+<h3 id="tree-shaking--dce"><a class="header" href="#tree-shaking--dce">Tree shaking &amp; DCE</a></h3>
+<p>Tree-shaking is a technique of a bundle-wise DCE(dead code elimination). In the following content, I will use tree-shaking as a wording for bundle-wise and DCE for module-wise code elimination. (I know it's not quite appropriate, but you get the point)</p>
+<p>Here's an example:</p>
+<pre><code class="language-js">// webpack configuration
+module.exports = {
+  optimization: {
+    usedExports: true
+  }
+}
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220919_1663583216.png" alt="image-20220919182656468" /></p>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220919_1663585553.png" alt="image-20220919190553215" /></p>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220919_1663585765.png" alt="image-20220919190925073" /></p>
+<p>As you can see from the red square, the <code>initFragment</code> is generated based on the usage of the exported symbol in the <code>HarmonyExportSpecifierDependency</code> <a href="https://github.com/webpack/webpack/blob/9fcaa243573005d6fdece9a3f8d89a0e8b399613/lib/dependencies/HarmonyExportSpecifierDependency.js#L91-L107">[source]</a></p>
+<p>If <code>foo</code> is used in the graph, then the generated result will be this:</p>
+<pre><code class="language-js">/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   &quot;foo&quot;: function() { return /* binding */ foo; }
+/* harmony export */ });
+const foo = &quot;foo&quot;;
+</code></pre>
+<p>In the example above, the <code>foo</code> is not used, so it will be excluded in the code generation of the template of <code>HarmonyExportSpecifierDependency</code> and it will be dead-code-eliminated in later steps. For terser plugin, it eliminates all unreachable code in <code>processAssets</code> <a href="https://github.com/webpack-contrib/terser-webpack-plugin/blob/580f59c5d223a31c4a9c658a6f9bb1e59b3defa6/src/index.js#L836">[source]</a>.</p>
+<h2 id="things-related-to-persistent-cache"><a class="header" href="#things-related-to-persistent-cache">Things related to Persistent cache</a></h2>
+<p><em>TODO</em></p>
+<h2 id="wrap-it-up"><a class="header" href="#wrap-it-up">Wrap it up!</a></h2>
+<p>Let's wrap everything up in a simple example! Isn't it exciting?</p>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220919_1663597948.png" alt="image-20220919223228146" /></p>
+<p>Given a module graph that contains three modules, the entry point of this bundle is <code>index.js</code>. To not make this example too complicated, we use normal import statements to reference each module (i.e: only one chunk that bundles everything will be created).</p>
+<h3 id="make"><a class="header" href="#make"><code>Make</code></a></h3>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220919_1663598158.png" alt="image-20220919223558327" /></p>
+<h3 id="dependencies-after-make"><a class="header" href="#dependencies-after-make">Dependencies after <code>make</code></a></h3>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220919_1663598240.png" alt="image-20220919223720739" /></p>
+<h3 id="seal"><a class="header" href="#seal"><code>seal</code></a></h3>
+<p><img src="https://raw.githubusercontent.com/h-a-n-a/static/main/2022/09/upgit_20220920_1663668558.png" alt="image-20220920180915326" /></p>
+<h1 id="references"><a class="header" href="#references">References</a></h1>
+<p><em>TODO</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../architecture/webpack/loader.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../workflows/meetings.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../architecture/webpack/loader.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../workflows/meetings.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

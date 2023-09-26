@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>loader - Rspack Development Guide</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../../getting-started.html">Getting started</a></li><li class="chapter-item affix "><a href="../../about-this-guide.html">About this guide</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item "><a href="../../building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="../../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../testing/e2e.html"><strong aria-hidden="true">2.1.</strong> E2E</a></li></ol></li><li class="chapter-item "><a href="../../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a></li><li class="chapter-item "><a href="../../profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item "><a href="../../releasing/intro.html"><strong aria-hidden="true">5.</strong> Releasing</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../../contributing/intro.html"><strong aria-hidden="true">6.</strong> Contribution procedures</a></li><li class="chapter-item "><a href="../../contributing/repro.html"><strong aria-hidden="true">7.</strong> Minimal reproducible example</a></li><li class="chapter-item "><a href="../../contributing/team.html"><strong aria-hidden="true">8.</strong> About the team</a></li><li class="chapter-item "><a href="../../contributing/managing-labels.html"><strong aria-hidden="true">9.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item expanded "><a href="../../architecture/rspack/intro.html"><strong aria-hidden="true">10.</strong> rspack</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../architecture/rspack/loader.html" class="active"><strong aria-hidden="true">10.1.</strong> loader</a></li></ol></li><li class="chapter-item "><a href="../../architecture/webpack/intro.html"><strong aria-hidden="true">11.</strong> webpack</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../architecture/webpack/loader.html"><strong aria-hidden="true">11.1.</strong> loader</a></li><li class="chapter-item "><a href="../../architecture/webpack/dependency.html"><strong aria-hidden="true">11.2.</strong> dependency</a></li><li class="spacer"></li></ol></li><li class="chapter-item "><li class="part-title">Workflows</li><li class="chapter-item "><a href="../../workflows/meetings.html"><strong aria-hidden="true">12.</strong> Meetings</a></li><li class="chapter-item "><a href="../../workflows/releases.html"><strong aria-hidden="true">13.</strong> Releases</a></li><li class="chapter-item "><a href="../../workflows/misc.html"><strong aria-hidden="true">14.</strong> Misc</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rspack Development Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="related-prs"><a class="header" href="#related-prs">Related PRs</a></h1>
+<ul>
+<li><a href="https://github.com/web-infra-dev/rspack/pull/2789">rspack#2780</a></li>
+<li><a href="https://github.com/web-infra-dev/rspack/pull/2808">rspack#2808</a></li>
+</ul>
+<h1 id="summary"><a class="header" href="#summary">Summary</a></h1>
+<p>The old architecture is a quite simple version, which only supports loaders for normal stage.
+Pitching loader does not put into consideration. The basic concept of the old version is to
+convert the normal loader to a native function which can be called from the Rust side.
+Furthermore, for performance reason, Rspack also composes loaders from the JS side to
+mitigate the performance issue of Node/Rust communications.</p>
+<p>In this new architecture, loaders will not be converted directly into native functions.
+Instead, it is almost the same with how webpack's loader-runner resolves its loaders, by
+leveraging the identifier. Every time Rspack wants to invoke a JS loader, the identifiers will
+be passed to the handler passed by Node side to process. The implementation also keeps
+the feature of composing JS loaders for performance reason.</p>
+<h1 id="guide-level-explanation"><a class="header" href="#guide-level-explanation">Guide-level explanation</a></h1>
+<p>The refactor does not introduce any other breaking changes. So it's backwards compatible.
+The change of the architecture also help us to implement pitching loader with composability.</p>
+<h2 id="pitching-loader"><a class="header" href="#pitching-loader">Pitching loader</a></h2>
+<p>Pitching loader is a technique to change the loader pipeline flow. It is usually used with 
+inline loader syntax for creating another loader pipeline. style-loader, etc and other loaders
+which might consume the evaluated result of the following loaders may use this technique.
+There are other technique to achieve the same ability, but it's out of this article's topic.</p>
+<p>See <a href="https://webpack.js.org/api/loaders/#pitching-loader">Pitching loader</a> for more detail.</p>
+<h1 id="reference-level-explanation"><a class="header" href="#reference-level-explanation">Reference-level explanation</a></h1>
+<h2 id="actor-of-loader-execution"><a class="header" href="#actor-of-loader-execution">Actor of loader execution</a></h2>
+<p>In the original implementation of loader, Rspack will convert the normal loaders in the first place,
+then pass it to the Rust side. In the procedure of building modules, these loaders will be called directly:</p>
+<p><img src="https://user-images.githubusercontent.com/10465670/233357319-e80f6b32-331c-416d-b4b5-30f3e0e394bd.png" alt="Old architecture" /></p>
+<p>The loader runner is only on the Rust side and execute the loaders directly from the Rust side.
+This mechanism has a strong limit for us to use webpack's loader-runner for composed loaders.</p>
+<p>In the new architecture, we will delegate the loader request from the Rust core to a dispatcher 
+located on the JS side. The dispatcher will normalize the loader and execute these using a modified
+version of webpack's loader-runner:</p>
+<p><img src="https://user-images.githubusercontent.com/10465670/233357805-923e0a27-609d-409a-b38d-96a083613235.png" alt="image" /></p>
+<p>Loader functions for pitch or normal will not be passed to the Rust side. Instead, each JS loader has
+its identifier to uniquely represent each one. If a module requests a loader for processing the module,
+Rspack will pass identifier with options to the JS side to instruct the Webpack like loader-runner to
+process the transform. This also reduces the complexity of writing our own loader composer.</p>
+<h2 id="passing-options"><a class="header" href="#passing-options">Passing options</a></h2>
+<p>Options will normally be converted to query, but some of the options contain fields that cannot be 
+serialized, Rspack will reuse the <em><strong>loader ident</strong></em> created by webpack to uniquely identify the option
+and restore it in later loading process.</p>
+<h2 id="optimization-for-pitching"><a class="header" href="#optimization-for-pitching">Optimization for pitching</a></h2>
+<p>As we had known before, each loader has two steps, pitch and normal. For a performance friendly
+interoperability, we must reduce the communication between Rust and JS as minimum as possible.
+Normally, the execution steps of loaders will look like this:</p>
+<p><img src="https://user-images.githubusercontent.com/10465670/233360942-7517f22e-3861-47cb-be9e-6dd5f5e02a4a.png" alt="image" /></p>
+<p>The execution order of the loaders above will looks like this:</p>
+<pre><code>loader-A(pitch)
+   loader-B(pitch)
+      loader-C(pitch)
+   loader-B(normal)
+loader-A(normal)
+</code></pre>
+<p>The example above does not contain any JS loaders, but if, say, we mark these loaders registered on the
+JS side:</p>
+<p><img src="https://user-images.githubusercontent.com/10465670/233362338-93e922f6-8812-4ca9-9d80-cf294e4f2ff8.png" alt="image" /></p>
+<p>The execution order will not change, but Rspack will compose the step 2/3/4 together for only a single
+round communication.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../architecture/rspack/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../architecture/webpack/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../architecture/rspack/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../architecture/webpack/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
