@@ -646,7 +646,7 @@ module.exports.raw = true
 
 Image there is a need to transform an asset formatted with `png` to `jpg`. There is two abilities that webpack needs to support:
 
-1. Handle the asset with `raw` content, or a `Buffer`. We can simply override the defualt resource reading behavior by exporting `raw`(covered before).
+1. Handle the asset with `raw` content, or a `Buffer`. We can simply override the default resource reading behavior by exporting `raw`(covered before).
 2. Change the filename, and reuse the loader for both `png` and  `jpg`
 
 

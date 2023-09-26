@@ -30,7 +30,7 @@ Explain how webpack dependency affects the compilation and what kind of problem 
 
 ## `Dependency`
 
-`dependency`(`fileDependency`) stands for the file *dependency* among `missingDependeny` and `contextDependency`, etc. The created dependency will be marked as watchable, which is useful in *Hot Module Replacement* in developer mode.
+`dependency`(`fileDependency`) stands for the file *dependency* among `missingDependency` and `contextDependency`, etc. The created dependency will be marked as watchable, which is useful in *Hot Module Replacement* in developer mode.
 
 The implicit behavior for webpack internally in the case below is to create two dependencies internally.
 
@@ -223,7 +223,7 @@ console.log(foo, bar)
 Specifier will be mapped into a specifier dependency if and only if it is used. JavaScript parser will first tag each variable [[source]](https://github.com/webpack/webpack/blob/86a8bd9618c4677e94612ff7cbdf69affeba1268/lib/dependencies/HarmonyImportDependencyParserPlugin.js#L137), and then create corresponding dependencies on each reading of dependency. [[source]](https://github.com/webpack/webpack/blob/86a8bd9618c4677e94612ff7cbdf69affeba1268/lib/dependencies/HarmonyImportDependencyParserPlugin.js#L189) and finally be replaced to the generated `importVar`.
 
 
-##### Export(They are not module dependencies to be actual, but I placed here for convienence)
+##### Export(They are not module dependencies to be actual, but I placed here for convenience)
 
 **`HarmonyExportHeaderDependency`**
 
@@ -330,7 +330,7 @@ ConstDependency.Template = class ConstDependencyTemplate extends (
 	apply(dependency, source, templateContext) {
 		const dep = /** @type {ConstDependency} */ (dependency);
         
-        // not necessary code is removed for clearer demostration 
+        // not necessary code is removed for clearer demonstration 
 
         if (dep.runtimeRequirements) {
 			for (const req of dep.runtimeRequirements) {
