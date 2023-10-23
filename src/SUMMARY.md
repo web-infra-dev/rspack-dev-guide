@@ -13,6 +13,7 @@
 - [Testing](./testing/intro.md)
     - [E2E](./testing/e2e.md)
 - [Debugging](./debugging/intro.md)
+  - [Mixed debug](./debugging/mix-debug.md)
 - [Profiling](./profiling/intro.md)
 - [Releasing](./releasing/intro.md)
 
