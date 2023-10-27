@@ -179,8 +179,20 @@
 <li><code>UPDATE=1 cargo test</code> will automatically update the failed snapshot</li>
 </ul>
 <h2 id="node-testing"><a class="header" href="#node-testing">Node Testing</a></h2>
+<p>We are maintaining two test suites for Node Testing in Rspack, Rspack Testing and Webpack Testing</p>
+<h3 id="webpack-testing"><a class="header" href="#webpack-testing">Webpack Testing</a></h3>
+<p>We copy the whole webpack test suites into <a href="https://github.com/web-infra-dev/rspack/tree/main/webpack-test#progressively-migrate-webpack-test">webpack-test</a> folder to check the compatibility with webpack. If you add features or fix bugs we recommend you check whether this feature or bug is covered in webpack test suites first. If it's covered and testable in Webpack Testing, you can enable specific test case by setting return value to true in <a href="https://github.com/web-infra-dev/rspack/blob/80e97477483fcb912473ae339c37d5a5e247f7b1/webpack-test/cases/compile/error-hide-stack/test.filter.js#L2C33-L2C84"><code>test.filter.js</code></a> in this case folder to enable this case. See more details in https://github.com/web-infra-dev/rspack/blob/main/webpack-test/README.md, Please note that don't modify original test code in Webpack Testing, if you find difficulties in running test suites without modifying original code, you can copy this test code in the following [Rspack Testing](#Rspack Testing).</p>
+<h4 id="run-tests"><a class="header" href="#run-tests">Run Tests</a></h4>
 <pre><code class="language-sh"># In root path
-pnpm --filter &quot;./packages/**&quot; run build &amp;&amp; pnpm --filter &quot;./packages/**&quot; run test
+./x build -a # build binding and js part
+./x test webpack # run webpack test suites
+</code></pre>
+<h3 id="rspack-testing"><a class="header" href="#rspack-testing">Rspack Testing</a></h3>
+<p>We maintain test suites in Rspack Testing which is not coverable or need to be modified in Webpack Testing. The test suites lies in <a href="https://github.com/web-infra-dev/rspack/tree/main/packages/rspack/tests">rspack-test</a>. This folder structure is similar with Webpack Testing.</p>
+<h4 id="run-tests-1"><a class="header" href="#run-tests-1">Run Tests</a></h4>
+<pre><code class="language-sh"># In root path
+./x build -a
+./x test js
 </code></pre>
 <p>Or only test the package that you made the changes:</p>
 <pre><code class="language-sh"># In the Node.js package path
