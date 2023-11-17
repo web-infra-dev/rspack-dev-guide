@@ -23,6 +23,14 @@ RSPACK_PROFILE=TRACE=layer=logger rspack build
 RSPACK_PROFILE='TRACE=layer=logger&filter=rspack_core::compiler::compilation' rspack build # filter for an event
 ```
 
+### `oxc_resolver`
+
+`oxc_resolver` emits some tracing information for debugging purposes.
+
+```bash
+RSPACK_PROFILE='TRACE=filter=oxc_resolver=trace&layer=logger' rspack build
+```
+
 ## rust-lldb
 
 `rust-lldb` can be used to get panic information from debug builds
