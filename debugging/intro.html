@@ -190,6 +190,10 @@
 <pre><code class="language-bash">RSPACK_PROFILE=TRACE=layer=logger rspack build
 RSPACK_PROFILE='TRACE=layer=logger&amp;filter=rspack_core::compiler::compilation' rspack build # filter for an event
 </code></pre>
+<h3 id="oxc_resolver"><a class="header" href="#oxc_resolver"><code>oxc_resolver</code></a></h3>
+<p><code>oxc_resolver</code> emits some tracing information for debugging purposes.</p>
+<pre><code class="language-bash">RSPACK_PROFILE='TRACE=filter=oxc_resolver=trace&amp;layer=logger' rspack build
+</code></pre>
 <h2 id="rust-lldb"><a class="header" href="#rust-lldb">rust-lldb</a></h2>
 <p><code>rust-lldb</code> can be used to get panic information from debug builds</p>
 <pre><code class="language-bash">rust-lldb -- node /path/to/rspack build
