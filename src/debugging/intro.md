@@ -20,7 +20,10 @@ Use the `RSPACK_PROFILE` environment variable for displaying trace information
 
 ```bash
 RSPACK_PROFILE=TRACE=layer=logger rspack build
-RSPACK_PROFILE='TRACE=layer=logger&filter=rspack_core::compiler::compilation' rspack build # filter for an event
+# filter for an event
+RSPACK_PROFILE='TRACE=layer=logger&filter=rspack_core::compiler::compilation' rspack build
+# disable ansi color escape codes
+NO_COLOR=1 RSPACK_PROFILE=TRACE=layer=logger rspack build
 ```
 
 ### `oxc_resolver`
