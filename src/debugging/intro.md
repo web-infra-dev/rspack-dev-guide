@@ -22,6 +22,21 @@ Use the `RSPACK_PROFILE` environment variable for displaying trace information
 RSPACK_PROFILE=TRACE=layer=logger rspack build
 # filter for an event
 RSPACK_PROFILE='TRACE=layer=logger&filter=rspack_core::compiler::compilation' rspack build
+# with logger level
+RSPACK_PROFILE='TRACE=layer=logger&filter=rspack_core::compiler::compilation=info' rspack build
+# filter logs across multiple modules
+RSPACK_PROFILE='TRACE=layer=logger&filter=rspack_core::compiler::compilation,rspack_core::build_chunk_graph::code_splitter' rspack build
+# [fn_name] will show: 
+# - all functions calls to `fn_name`
+# - the arguments(except for these in the `skip` list)
+# - everything until this function returns
+RSPACK_PROFILE='TRACE=layer=logger&filter=[build_chunk_graph]' rspack build
+# compilation::chunk_asset is a custom instrument name
+RSPACK_PROFILE='TRACE=layer=logger&filter=[compilation:chunk_asset]' rspack build
+# log a specific function by their arguments
+RSPACK_PROFILE='TRACE=layer=logger&filter=[compilation:chunk_asset{filename="main\.js"}]' rspack build
+# It support regexp expression
+RSPACK_PROFILE='TRACE=layer=logger&filter=[compilation:chunk_asset{filename=".*\.js"}]' rspack build
 # disable ansi color escape codes
 NO_COLOR=1 RSPACK_PROFILE=TRACE=layer=logger rspack build
 ```
