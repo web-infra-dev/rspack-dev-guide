@@ -2,6 +2,7 @@
 
 In this section, we'll explore how to profile Rspack for identifying bottlenecks.
 By examining where Rspack spends its time, we can gain insights into how to improve performance.
+Since different profilers have different strengths. It is good to use more than one.
 
 <!-- toc -->
 
@@ -22,6 +23,8 @@ Two ways to enable tracing:
 ### Chrome
 
 [`tracing-chrome`](https://crates.io/crates/tracing-chrome) is supported for viewing tracing information graphically.
+
+![image](https://github.com/SyMind/rspack-dev-guide/assets/19852293/1af08ba1-a2e9-4e3e-99ab-87c1e62e067b)
 
 Setting the environment variable `RSPACK_PROFILE=TRACE=layer=chrome` before running Rspack, for example
 
@@ -68,6 +71,8 @@ speedscope CPU.20230522.154658.14577.0.001.cpuprofile
 
 Xcode instruments can be used to produce a CPU profile if you are on a Mac.
 
+![image](https://github.com/SyMind/rspack-dev-guide/assets/19852293/124e3aee-944a-4509-bb93-1c9213f026d3)
+
 To install Xcode Instruments, simply install the Command Line Tools:
 
 ```bash
@@ -80,7 +85,7 @@ for profiling and creating the trace file.
 Since Rspack takes quite a while to build, you can use the following procedure without invoking `cargo instruments`.
 It has the same effect.
 
-In `crates/node_binding/Cargo.toml`, turn on debug symbols and disable symbol stripping in the `[profile.release]` section
+In workspace root's `Cargo.toml`, turn on debug symbols and disable symbol stripping in the `[profile.release]` section
 
 ```toml
 [profile.release]
