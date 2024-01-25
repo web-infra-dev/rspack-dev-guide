@@ -175,7 +175,8 @@
                     <main>
                         <h1 id="profiling"><a class="header" href="#profiling">Profiling</a></h1>
 <p>In this section, we'll explore how to profile Rspack for identifying bottlenecks.
-By examining where Rspack spends its time, we can gain insights into how to improve performance.</p>
+By examining where Rspack spends its time, we can gain insights into how to improve performance.
+Since different profilers have different strengths. It is good to use more than one.</p>
 <ul>
 <li><a href="#tracing">Tracing</a>
 <ul>
@@ -200,6 +201,7 @@ By examining where Rspack spends its time, we can gain insights into how to impr
 </ul>
 <h3 id="chrome"><a class="header" href="#chrome">Chrome</a></h3>
 <p><a href="https://crates.io/crates/tracing-chrome"><code>tracing-chrome</code></a> is supported for viewing tracing information graphically.</p>
+<p><img src="https://github.com/SyMind/rspack-dev-guide/assets/19852293/1af08ba1-a2e9-4e3e-99ab-87c1e62e067b" alt="image" /></p>
 <p>Setting the environment variable <code>RSPACK_PROFILE=TRACE=layer=chrome</code> before running Rspack, for example</p>
 <pre><code class="language-bash">RSPACK_PROFILE=TRACE=layer=chrome rspack build
 </code></pre>
@@ -223,6 +225,7 @@ speedscope CPU.20230522.154658.14577.0.001.cpuprofile
 </code></pre>
 <h2 id="mac-xcode-instruments"><a class="header" href="#mac-xcode-instruments">Mac Xcode Instruments</a></h2>
 <p>Xcode instruments can be used to produce a CPU profile if you are on a Mac.</p>
+<p><img src="https://github.com/SyMind/rspack-dev-guide/assets/19852293/124e3aee-944a-4509-bb93-1c9213f026d3" alt="image" /></p>
 <p>To install Xcode Instruments, simply install the Command Line Tools:</p>
 <pre><code class="language-bash">xcode-select --install
 </code></pre>
@@ -230,7 +233,7 @@ speedscope CPU.20230522.154658.14577.0.001.cpuprofile
 for profiling and creating the trace file.</p>
 <p>Since Rspack takes quite a while to build, you can use the following procedure without invoking <code>cargo instruments</code>.
 It has the same effect.</p>
-<p>In <code>crates/node_binding/Cargo.toml</code>, turn on debug symbols and disable symbol stripping in the <code>[profile.release]</code> section</p>
+<p>In workspace root's <code>Cargo.toml</code>, turn on debug symbols and disable symbol stripping in the <code>[profile.release]</code> section</p>
 <pre><code class="language-toml">[profile.release]
 debug = 1 # debug info with line tables only
 strip = false # do not strip symbols
