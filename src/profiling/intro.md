@@ -2,6 +2,7 @@
 
 In this section, we'll explore how to profile Rspack for identifying bottlenecks.
 By examining where Rspack spends its time, we can gain insights into how to improve performance.
+Since different profilers have different strengths. It is good to use more than one.
 
 <!-- toc -->
 
@@ -80,7 +81,7 @@ for profiling and creating the trace file.
 Since Rspack takes quite a while to build, you can use the following procedure without invoking `cargo instruments`.
 It has the same effect.
 
-In `crates/node_binding/Cargo.toml`, turn on debug symbols and disable symbol stripping in the `[profile.release]` section
+In workspace root's root `Cargo.toml`, turn on debug symbols and disable symbol stripping in the `[profile.release]` section
 
 ```toml
 [profile.release]
