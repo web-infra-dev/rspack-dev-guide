@@ -85,7 +85,7 @@ for profiling and creating the trace file.
 Since Rspack takes quite a while to build, you can use the following procedure without invoking `cargo instruments`.
 It has the same effect.
 
-In workspace root's root `Cargo.toml`, turn on debug symbols and disable symbol stripping in the `[profile.release]` section
+In workspace root's `Cargo.toml`, turn on debug symbols and disable symbol stripping in the `[profile.release]` section
 
 ```toml
 [profile.release]
