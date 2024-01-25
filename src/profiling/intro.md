@@ -24,6 +24,8 @@ Two ways to enable tracing:
 
 [`tracing-chrome`](https://crates.io/crates/tracing-chrome) is supported for viewing tracing information graphically.
 
+![image](https://github.com/SyMind/rspack-dev-guide/assets/19852293/1af08ba1-a2e9-4e3e-99ab-87c1e62e067b)
+
 Setting the environment variable `RSPACK_PROFILE=TRACE=layer=chrome` before running Rspack, for example
 
 ```bash
@@ -68,6 +70,8 @@ speedscope CPU.20230522.154658.14577.0.001.cpuprofile
 ## Mac Xcode Instruments
 
 Xcode instruments can be used to produce a CPU profile if you are on a Mac.
+
+![image](https://github.com/SyMind/rspack-dev-guide/assets/19852293/124e3aee-944a-4509-bb93-1c9213f026d3)
 
 To install Xcode Instruments, simply install the Command Line Tools:
 
