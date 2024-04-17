@@ -29,6 +29,7 @@
 # Architecture
   - [rspack](./architecture/rspack/intro.md)
     - [loader](./architecture/rspack/loader.md)
+    - [plugin](./architecture/rspack/plugin.md)
   - [webpack](./architecture/webpack/intro.md)
     - [loader](./architecture/webpack/loader.md)
     - [dependency](./architecture/webpack/dependency.md)
