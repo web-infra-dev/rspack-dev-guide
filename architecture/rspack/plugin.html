@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>rspack - Rspack Development Guide</title>
+        <title>plugin - Rspack Development Guide</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../../getting-started.html">Getting started</a></li><li class="chapter-item affix "><a href="../../about-this-guide.html">About this guide</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item "><a href="../../building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="../../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../testing/intro.html"><strong aria-hidden="true">2.1.</strong> intro</a></li><li class="chapter-item "><a href="../../testing/e2e.html"><strong aria-hidden="true">2.2.</strong> E2E</a></li></ol></li><li class="chapter-item "><a href="../../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../debugging/mix-debug.html"><strong aria-hidden="true">3.1.</strong> Mixed debug</a></li></ol></li><li class="chapter-item "><a href="../../profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item "><a href="../../releasing/intro.html"><strong aria-hidden="true">5.</strong> Releasing</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../../contributing/intro.html"><strong aria-hidden="true">6.</strong> Contribution procedures</a></li><li class="chapter-item "><a href="../../contributing/repro.html"><strong aria-hidden="true">7.</strong> Minimal reproducible example</a></li><li class="chapter-item "><a href="../../contributing/team.html"><strong aria-hidden="true">8.</strong> About the team</a></li><li class="chapter-item "><a href="../../contributing/managing-labels.html"><strong aria-hidden="true">9.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item expanded "><a href="../../architecture/rspack/intro.html" class="active"><strong aria-hidden="true">10.</strong> rspack</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../architecture/rspack/loader.html"><strong aria-hidden="true">10.1.</strong> loader</a></li><li class="chapter-item "><a href="../../architecture/rspack/plugin.html"><strong aria-hidden="true">10.2.</strong> plugin</a></li></ol></li><li class="chapter-item "><a href="../../architecture/webpack/intro.html"><strong aria-hidden="true">11.</strong> webpack</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../architecture/webpack/loader.html"><strong aria-hidden="true">11.1.</strong> loader</a></li><li class="chapter-item "><a href="../../architecture/webpack/dependency.html"><strong aria-hidden="true">11.2.</strong> dependency</a></li><li class="spacer"></li></ol></li><li class="chapter-item "><li class="part-title">Workflows</li><li class="chapter-item "><a href="../../workflows/meetings.html"><strong aria-hidden="true">12.</strong> Meetings</a></li><li class="chapter-item "><a href="../../workflows/releases.html"><strong aria-hidden="true">13.</strong> Releases</a></li><li class="chapter-item "><a href="../../workflows/misc.html"><strong aria-hidden="true">14.</strong> Misc</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../../getting-started.html">Getting started</a></li><li class="chapter-item affix "><a href="../../about-this-guide.html">About this guide</a></li><li class="spacer"></li><li class="chapter-item affix "><li class="part-title">Development</li><li class="chapter-item "><a href="../../building/intro.html"><strong aria-hidden="true">1.</strong> Building and running</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../building/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="../../building/suggested.html"><strong aria-hidden="true">1.2.</strong> Suggested Workflows</a></li></ol></li><li class="chapter-item "><a href="../../testing/intro.html"><strong aria-hidden="true">2.</strong> Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../testing/intro.html"><strong aria-hidden="true">2.1.</strong> intro</a></li><li class="chapter-item "><a href="../../testing/e2e.html"><strong aria-hidden="true">2.2.</strong> E2E</a></li></ol></li><li class="chapter-item "><a href="../../debugging/intro.html"><strong aria-hidden="true">3.</strong> Debugging</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../debugging/mix-debug.html"><strong aria-hidden="true">3.1.</strong> Mixed debug</a></li></ol></li><li class="chapter-item "><a href="../../profiling/intro.html"><strong aria-hidden="true">4.</strong> Profiling</a></li><li class="chapter-item "><a href="../../releasing/intro.html"><strong aria-hidden="true">5.</strong> Releasing</a></li><li class="chapter-item affix "><li class="part-title">Contribution</li><li class="chapter-item "><a href="../../contributing/intro.html"><strong aria-hidden="true">6.</strong> Contribution procedures</a></li><li class="chapter-item "><a href="../../contributing/repro.html"><strong aria-hidden="true">7.</strong> Minimal reproducible example</a></li><li class="chapter-item "><a href="../../contributing/team.html"><strong aria-hidden="true">8.</strong> About the team</a></li><li class="chapter-item "><a href="../../contributing/managing-labels.html"><strong aria-hidden="true">9.</strong> Managing labels</a></li><li class="chapter-item affix "><li class="part-title">Architecture</li><li class="chapter-item expanded "><a href="../../architecture/rspack/intro.html"><strong aria-hidden="true">10.</strong> rspack</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../architecture/rspack/loader.html"><strong aria-hidden="true">10.1.</strong> loader</a></li><li class="chapter-item expanded "><a href="../../architecture/rspack/plugin.html" class="active"><strong aria-hidden="true">10.2.</strong> plugin</a></li></ol></li><li class="chapter-item "><a href="../../architecture/webpack/intro.html"><strong aria-hidden="true">11.</strong> webpack</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../architecture/webpack/loader.html"><strong aria-hidden="true">11.1.</strong> loader</a></li><li class="chapter-item "><a href="../../architecture/webpack/dependency.html"><strong aria-hidden="true">11.2.</strong> dependency</a></li><li class="spacer"></li></ol></li><li class="chapter-item "><li class="part-title">Workflows</li><li class="chapter-item "><a href="../../workflows/meetings.html"><strong aria-hidden="true">12.</strong> Meetings</a></li><li class="chapter-item "><a href="../../workflows/releases.html"><strong aria-hidden="true">13.</strong> Releases</a></li><li class="chapter-item "><a href="../../workflows/misc.html"><strong aria-hidden="true">14.</strong> Misc</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="../../appendix/learning-resources.html">Appendix A: Learning resources</a></li><li class="chapter-item affix "><a href="../../appendix/fun.html">Appendix Z: Fun stuff</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,23 +173,70 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="rspack"><a class="header" href="#rspack">rspack</a></h1>
-<p>This is the architecture of current rspack implementation</p>
-<h1 id="table-of-contents"><a class="header" href="#table-of-contents">Table of Contents</a></h1>
+                        <h1 id="how-to-write-a-builtin-plugin"><a class="header" href="#how-to-write-a-builtin-plugin">How to write a builtin plugin</a></h1>
+<p>Builtin plugin uses <a href="https://github.com/web-infra-dev/rspack/tree/7cc39cc4bb6f73791a5bcb175137ffd84b105da5/crates/rspack_macros">rspack_macros</a> to help you avoid writing boilerplate code, you can use <a href="https://github.com/dtolnay/cargo-expand">cargo-expand</a> or <a href="https://rust-analyzer.github.io/manual.html#expand-macro-recursively">rust-analyzer expand macro</a> to checkout the expanded code, and for developing/testing these macro, you can starts with <a href="https://github.com/web-infra-dev/rspack/tree/7cc39cc4bb6f73791a5bcb175137ffd84b105da5/crates/rspack_macros_test">rspack_macros_test</a>.</p>
+<p>A simple example:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use rspack_hook::{plugin, plugin_hook};
+use rspack_core::{Plugin, PluginContext, ApplyContext, CompilerOptions};
+use rspack_core::CompilerCompilation;
+use rspack_error::Result;
+
+// define the plugin
+#[plugin]
+pub struct MyPlugin {
+  options: MyPluginOptions
+}
+
+// define the plugin hook
+#[plugin_hook(CompilerCompilation for MuPlugin)]
+async fn compilation(&amp;self, compilation: &amp;mut Compilation) -&gt; Result&lt;()&gt; {
+  // do something...
+}
+
+// implement apply method for the plugin
+impl Plugin for MyPlugin {
+  fn apply(&amp;self, ctx: PluginContext&lt;&amp;mut ApplyContext&gt;, _options: &amp;mut CompilerOptions) -&gt; Result&lt;()&gt; {
+    ctx.context.compiler_hooks.tap(compilation::new(self))
+    Ok(())
+  }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>And here is <a href="https://github.com/web-infra-dev/rspack/blob/7cc39cc4bb6f73791a5bcb175137ffd84b105da5/crates/rspack_plugin_ignore/src/lib.rs">an example</a>.</p>
+<p>If the hook you need is not defined yet, you can define it by <code>rspack_hook::define_hook</code>, <code>compiler.hooks.assetEmitted</code> for example:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// this will allow you define hook's arguments without limit
+define_hook!(CompilerShouldEmit: AsyncSeriesBail(compilation: &amp;mut Compilation) -&gt; bool);
+//           ------------------  --------------- -----------------------------  -------
+//           hook name           exec kind       hook arguments                 return value (Result&lt;Option&lt;bool&gt;&gt;)
+
+#[derive(Debug, Default)]
+pub struct CompilerHooks {
+  // ...
+  // and add it here
+  pub asset_emitted: CompilerAssetEmittedHook,
+}
+<span class="boring">}</span></code></pre></pre>
+<p>There are 5 kinds of exec kind:</p>
 <ul>
-<li><a href="./loader.html">loader</a></li>
-<li><a href="./plugin.html">plugin</a></li>
+<li>AsyncSeries, return value is <code>Result&lt;()&gt;</code></li>
+<li>AsyncSeriesBail, return value is <code>Result&lt;Option&lt;T&gt;&gt;</code></li>
+<li>AsyncParallel, return value is <code>Result&lt;()&gt;</code></li>
+<li>SyncSeries, return value is <code>Result&lt;()&gt;</code></li>
+<li>SyncSeriesBail, return value is <code>Result&lt;Option&lt;T&gt;&gt;</code></li>
 </ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../contributing/managing-labels.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../architecture/rspack/loader.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../../architecture/rspack/loader.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../architecture/webpack/intro.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -199,11 +246,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../contributing/managing-labels.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../architecture/rspack/loader.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../../architecture/rspack/loader.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../architecture/webpack/intro.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
