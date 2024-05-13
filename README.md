@@ -1,5 +1,8 @@
 # Rspack Development Guide
 
+> [!NOTE]
+> The Rspack dev guide has been merged into the Rspack main website, this repo is no longer maintained. See: <https://rspack.dev/contribute/>.
+
 [![Build Status][ci-badge]][ci-url]
 
 [ci-badge]: https://github.com/web-infra-dev/rspack-dev-guide/actions/workflows/ci.yml/badge.svg?event=push&branch=main
